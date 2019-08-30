@@ -64,5 +64,7 @@ extension UITextView {
             NSAttributedString.Key.paragraphStyle : paragraphStyle
         ]
         self.attributedText = attributedOriginalText
+        
+        
     }
 }
