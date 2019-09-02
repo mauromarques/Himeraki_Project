@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F8C7F07231D048100BE4746 /* xForPopUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C7F06231D048100BE4746 /* xForPopUp.png */; };
 		2F8C7F09231D04F200BE4746 /* trashForPopUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C7F08231D04F200BE4746 /* trashForPopUp.png */; };
+		2F8C7F0C231D138600BE4746 /* favoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C7F0B231D138500BE4746 /* favoritesModel.swift */; };
 		2FCDBC722318026400F2FB91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC712318026400F2FB91 /* AppDelegate.swift */; };
 		2FCDBC742318026400F2FB91 /* favoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC732318026400F2FB91 /* favoritesViewController.swift */; };
 		2FCDBC772318026400F2FB91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FCDBC752318026400F2FB91 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		2F8C7F06231D048100BE4746 /* xForPopUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xForPopUp.png; sourceTree = "<group>"; };
 		2F8C7F08231D04F200BE4746 /* trashForPopUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trashForPopUp.png; sourceTree = "<group>"; };
+		2F8C7F0B231D138500BE4746 /* favoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesModel.swift; sourceTree = "<group>"; };
 		2FCDBC6E2318026400F2FB91 /* HimerakiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HimerakiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCDBC712318026400F2FB91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FCDBC732318026400F2FB91 /* favoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F8C7F0A231D137500BE4746 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2F8C7F0B231D138500BE4746 /* favoritesModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2FCDBC652318026400F2FB91 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +92,7 @@
 		2FCDBC702318026400F2FB91 /* HimerakiProject */ = {
 			isa = PBXGroup;
 			children = (
+				2F8C7F0A231D137500BE4746 /* Models */,
 				2FCDBC9723191F1700F2FB91 /* View Setups */,
 				2FCDBC9623191EFD00F2FB91 /* Controllers */,
 				2FCDBC9323191E3700F2FB91 /* Helpers */,
@@ -219,6 +230,7 @@
 				2FCDBC9523191E5400F2FB91 /* Extensions.swift in Sources */,
 				2FCDBCA32319794100F2FB91 /* FavoriteCells.swift in Sources */,
 				2FCDBC9923191F5700F2FB91 /* articleView.swift in Sources */,
+				2F8C7F0C231D138600BE4746 /* favoritesModel.swift in Sources */,
 				2FCDBCA5231A77C000F2FB91 /* BaseCell.swift in Sources */,
 				2FCDBCA7231A90F600F2FB91 /* FavoritePopUpView.swift in Sources */,
 				2FCDBC7A2318026400F2FB91 /* HimerakiProject.xcdatamodeld in Sources */,

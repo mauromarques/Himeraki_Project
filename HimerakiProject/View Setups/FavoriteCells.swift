@@ -26,7 +26,7 @@ class favoritesCell: BaseCell {
     var categoriesLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
-        label.text = "animals | colors"
+        label.text = ""
         label.text = label.text?.uppercased()
         label.font = UIFont(name: ".SFUIText-Medium", size: 15)
         label.textColor = UIColor.init(red: 255, green: 161, blue: 206)
@@ -36,7 +36,7 @@ class favoritesCell: BaseCell {
     var previewLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
-        label.text = "\"I wanna be a bottle blonde, i dont know why, but i feel dumb. i wanna be an idle teen, i wish i hadnt been so clean\""
+        label.text = ""
         label.font = UIFont(name: ".SFUIText-Medium", size: 15)
         label.textColor = UIColor.init(red: 234, green: 97, blue: 149)
         return label

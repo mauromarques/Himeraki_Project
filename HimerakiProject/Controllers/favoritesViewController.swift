@@ -8,6 +8,25 @@
 import UIKit
 class favoritesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    
+    
+    var favorite1 = Favorite(date: Date("2014-10-10")
+        , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red"), Category.init(name: "Character", prompt: "Noelle Silva")])
+    var favorite2 = Favorite(date: Date("2016-8-12")
+        , categories: [Category.init(name: "landscape", prompt: "mountain with a lake")])
+    var favorite3 = Favorite(date: Date("2017-5-9")
+        , categories: [Category.init(name: "Clothes", prompt: "Princess dress"), Category.init(name: "Color", prompt: "pink")])
+    var favorite4 = Favorite(date: Date("2019-2-15")
+        , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
+    var favorite5 = Favorite(date: Date("2019-10-10")
+        , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
+    var favorite6 = Favorite(date: Date("2012-3-28")
+        , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
+    var favorite7 = Favorite(date: Date("2014-10-10")
+        , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
+    
+    var favorites = [Favorite]()
+    
     let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
     let blurEffectView = UIVisualEffectView()
     var centerYConstraint = NSLayoutConstraint()
@@ -22,6 +41,10 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        favorites = [favorite1, favorite2, favorite3, favorite4, favorite5, favorite6, favorite7]
+        print("\(favorites)")
+        
         setNavBar()
         blurEffectView.effect=blurEffect
 
@@ -63,12 +86,27 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath) as! favoritesCell
         myCell.layer.cornerRadius = 15
         myCell.layer.applySketchShadow(color: .black, alpha: 0.3, x: 0, y: 2, blur: 11, spread: 0)
-//        myCell.backgroundColor = UIColor.white
+        
+        myCell.previewLabel.text = ""
+        myCell.categoriesLabel.text = ""
+
+        
+        for category in favorites[indexPath.row].categories{
+            myCell.categoriesLabel.text = myCell.categoriesLabel.text! + category.name + " | "
+            myCell.previewLabel.text = myCell.previewLabel.text! + category.prompt + ", "
+
+        }
+        myCell.categoriesLabel.text?.removeLast(2)
+        myCell.previewLabel.text?.removeLast(2)
+        myCell.previewLabel.text = myCell.previewLabel.text! + "."
+        myCell.categoriesLabel.text = myCell.categoriesLabel.text?.uppercased()
+        myCell.dateLabel.text = favorites[indexPath.row].date.asString(style: .short)
+        
         return myCell
     }
    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return favorites.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
