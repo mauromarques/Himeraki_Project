@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F8C7F07231D048100BE4746 /* xForPopUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C7F06231D048100BE4746 /* xForPopUp.png */; };
+		2F8C7F09231D04F200BE4746 /* trashForPopUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C7F08231D04F200BE4746 /* trashForPopUp.png */; };
 		2FCDBC722318026400F2FB91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC712318026400F2FB91 /* AppDelegate.swift */; };
-		2FCDBC742318026400F2FB91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC732318026400F2FB91 /* ViewController.swift */; };
+		2FCDBC742318026400F2FB91 /* favoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC732318026400F2FB91 /* favoritesViewController.swift */; };
 		2FCDBC772318026400F2FB91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FCDBC752318026400F2FB91 /* Main.storyboard */; };
 		2FCDBC7A2318026400F2FB91 /* HimerakiProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC782318026400F2FB91 /* HimerakiProject.xcdatamodeld */; };
 		2FCDBC7C2318026500F2FB91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FCDBC7B2318026500F2FB91 /* Assets.xcassets */; };
@@ -20,12 +22,18 @@
 		2FCDBC9523191E5400F2FB91 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC9423191E5400F2FB91 /* Extensions.swift */; };
 		2FCDBC9923191F5700F2FB91 /* articleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC9823191F5700F2FB91 /* articleView.swift */; };
 		2FCDBC9D231933CD00F2FB91 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FCDBC9C231933CD00F2FB91 /* x.png */; };
+		2FCDBCA12319725900F2FB91 /* simplyWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA02319725900F2FB91 /* simplyWhite.png */; };
+		2FCDBCA32319794100F2FB91 /* FavoriteCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA22319794100F2FB91 /* FavoriteCells.swift */; };
+		2FCDBCA5231A77C000F2FB91 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA4231A77C000F2FB91 /* BaseCell.swift */; };
+		2FCDBCA7231A90F600F2FB91 /* FavoritePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA6231A90F600F2FB91 /* FavoritePopUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F8C7F06231D048100BE4746 /* xForPopUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xForPopUp.png; sourceTree = "<group>"; };
+		2F8C7F08231D04F200BE4746 /* trashForPopUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trashForPopUp.png; sourceTree = "<group>"; };
 		2FCDBC6E2318026400F2FB91 /* HimerakiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HimerakiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCDBC712318026400F2FB91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2FCDBC732318026400F2FB91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2FCDBC732318026400F2FB91 /* favoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesViewController.swift; sourceTree = "<group>"; };
 		2FCDBC762318026400F2FB91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2FCDBC792318026400F2FB91 /* HimerakiProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HimerakiProject.xcdatamodel; sourceTree = "<group>"; };
 		2FCDBC7B2318026500F2FB91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +46,10 @@
 		2FCDBC9423191E5400F2FB91 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2FCDBC9823191F5700F2FB91 /* articleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = articleView.swift; sourceTree = "<group>"; };
 		2FCDBC9C231933CD00F2FB91 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
+		2FCDBCA02319725900F2FB91 /* simplyWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = simplyWhite.png; sourceTree = "<group>"; };
+		2FCDBCA22319794100F2FB91 /* FavoriteCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCells.swift; sourceTree = "<group>"; };
+		2FCDBCA4231A77C000F2FB91 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		2FCDBCA6231A90F600F2FB91 /* FavoritePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePopUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +84,7 @@
 			children = (
 				2FCDBC9723191F1700F2FB91 /* View Setups */,
 				2FCDBC9623191EFD00F2FB91 /* Controllers */,
-				2FCDBC9323191E3700F2FB91 /* Extensions */,
+				2FCDBC9323191E3700F2FB91 /* Helpers */,
 				2FCDBC922319117300F2FB91 /* images */,
 				2FCDBC752318026400F2FB91 /* Main.storyboard */,
 				2FCDBC7B2318026500F2FB91 /* Assets.xcassets */,
@@ -86,6 +98,9 @@
 		2FCDBC922319117300F2FB91 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2F8C7F08231D04F200BE4746 /* trashForPopUp.png */,
+				2F8C7F06231D048100BE4746 /* xForPopUp.png */,
+				2FCDBCA02319725900F2FB91 /* simplyWhite.png */,
 				2FCDBC9C231933CD00F2FB91 /* x.png */,
 				2FCDBC8A2318313E00F2FB91 /* bomie.png */,
 				2FCDBC8E231904B800F2FB91 /* gradientwhite.png */,
@@ -94,19 +109,20 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		2FCDBC9323191E3700F2FB91 /* Extensions */ = {
+		2FCDBC9323191E3700F2FB91 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				2FCDBC9423191E5400F2FB91 /* Extensions.swift */,
+				2FCDBCA4231A77C000F2FB91 /* BaseCell.swift */,
 			);
-			path = Extensions;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		2FCDBC9623191EFD00F2FB91 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				2FCDBC712318026400F2FB91 /* AppDelegate.swift */,
-				2FCDBC732318026400F2FB91 /* ViewController.swift */,
+				2FCDBC732318026400F2FB91 /* favoritesViewController.swift */,
 				2FCDBC86231813D300F2FB91 /* fullArticleViewController.swift */,
 			);
 			path = Controllers;
@@ -116,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				2FCDBC9823191F5700F2FB91 /* articleView.swift */,
+				2FCDBCA6231A90F600F2FB91 /* FavoritePopUpView.swift */,
+				2FCDBCA22319794100F2FB91 /* FavoriteCells.swift */,
 			);
 			path = "View Setups";
 			sourceTree = "<group>";
@@ -178,11 +196,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8C7F09231D04F200BE4746 /* trashForPopUp.png in Resources */,
 				2FCDBC8B2318313F00F2FB91 /* bomie.png in Resources */,
+				2FCDBCA12319725900F2FB91 /* simplyWhite.png in Resources */,
 				2FCDBC8F231904B900F2FB91 /* gradientwhite.png in Resources */,
 				2FCDBC9D231933CD00F2FB91 /* x.png in Resources */,
 				2FCDBC7F2318026500F2FB91 /* LaunchScreen.storyboard in Resources */,
 				2FCDBC7C2318026500F2FB91 /* Assets.xcassets in Resources */,
+				2F8C7F07231D048100BE4746 /* xForPopUp.png in Resources */,
 				2FCDBC772318026400F2FB91 /* Main.storyboard in Resources */,
 				2FCDBC912319114B00F2FB91 /* weirdTriangle.png in Resources */,
 			);
@@ -196,9 +217,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FCDBC9523191E5400F2FB91 /* Extensions.swift in Sources */,
+				2FCDBCA32319794100F2FB91 /* FavoriteCells.swift in Sources */,
 				2FCDBC9923191F5700F2FB91 /* articleView.swift in Sources */,
+				2FCDBCA5231A77C000F2FB91 /* BaseCell.swift in Sources */,
+				2FCDBCA7231A90F600F2FB91 /* FavoritePopUpView.swift in Sources */,
 				2FCDBC7A2318026400F2FB91 /* HimerakiProject.xcdatamodeld in Sources */,
-				2FCDBC742318026400F2FB91 /* ViewController.swift in Sources */,
+				2FCDBC742318026400F2FB91 /* favoritesViewController.swift in Sources */,
 				2FCDBC87231813D300F2FB91 /* fullArticleViewController.swift in Sources */,
 				2FCDBC722318026400F2FB91 /* AppDelegate.swift in Sources */,
 			);
