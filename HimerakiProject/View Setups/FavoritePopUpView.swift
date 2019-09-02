@@ -78,7 +78,7 @@ extension favoritesViewController {
         button.backgroundColor = .white
         button.setImage(UIImage(named: "xForPopUp"), for: .normal)
         container.addSubview(button)
-        button.anchor(top: card.bottomAnchor, leading: container.leadingAnchor, bottom: container.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: CGSize(width: 182, height: 0))
+        button.anchor(top: card.bottomAnchor, leading: container.leadingAnchor, bottom: container.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: CGSize(width: view.frame.width*0.4396, height: 0))
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
 
     }
@@ -102,7 +102,7 @@ extension favoritesViewController {
         button.backgroundColor = .white
         button.setImage(UIImage(named: "trashForPopUp"), for: .normal)
         container.addSubview(button)
-        button.anchor(top: card.bottomAnchor, leading: nil, bottom: container.bottomAnchor, trailing: container.trailingAnchor, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: CGSize(width: 182, height: 0))
+        button.anchor(top: card.bottomAnchor, leading: nil, bottom: container.bottomAnchor, trailing: container.trailingAnchor, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: CGSize(width: view.frame.width*0.43, height: 0))
         
     }
 }
