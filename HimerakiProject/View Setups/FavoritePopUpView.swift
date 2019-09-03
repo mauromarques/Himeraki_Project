@@ -88,10 +88,10 @@ extension favoritesViewController {
         closeButton.setImage(UIImage(named: "xForPopUp"), for: .normal)
         container.addSubview(closeButton)
         closeButton.anchor(top: card.bottomAnchor, leading: container.leadingAnchor, bottom: container.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: CGSize(width: view.frame.width*0.4396, height: 0))
-        closeButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        closeButton.addTarget(self, action: #selector(dismissPopUp), for: .touchUpInside)
 
     }
-    @objc func buttonAction(sender: UIButton!) {
+    @objc func dismissPopUp(sender: UIButton!) {
         UIView.animate(withDuration: 0.3, animations: {
             self.centerYConstraint.constant = (self.view.frame.height/2)+(267/2)
             self.blurEffectView.layoutIfNeeded()
@@ -113,8 +113,26 @@ extension favoritesViewController {
         deleteButton.setImage(UIImage(named: "trashForPopUp"), for: .normal)
         container.addSubview(deleteButton)
         deleteButton.anchor(top: card.bottomAnchor, leading: nil, bottom: container.bottomAnchor, trailing: container.trailingAnchor, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: CGSize(width: view.frame.width*0.43, height: 0))
+        deleteButton.addTarget(self, action: #selector(deleteAtIndex), for: .touchUpInside)
         
     }
+    @objc func deleteAtIndex(sender: UIButton!) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.centerYConstraint.constant = -(self.view.frame.height/2)-(267/2)
+            self.blurEffectView.layoutIfNeeded()
+        }) { (true) in
+            self.favorites.remove(at: self.currentIndex)
+            self.collectionView.reloadData()
+            UIView.animate(withDuration: 0.2, animations: {
+                self.blurEffectView.alpha = 0
+            }, completion: { (true) in
+                self.currentPopUp!.removeFromSuperview()
+                self.currentPopUp = nil
+            })
+        }
+    }
+    
+    
     func createPopUpCollection(card: UIView, line: UIView){
     card.addSubview(popUpCollectionView)
         popUpCollectionView.delegate = self

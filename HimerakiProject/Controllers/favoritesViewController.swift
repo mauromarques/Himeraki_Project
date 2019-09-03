@@ -37,6 +37,7 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
     var popUpCollectionHeight = 18
      
      var currentPopUp:UIView?
+     var currentIndex = Int()
 //     let detailsContainer = UIView()
 //     let card = UIView()
 //     let dateLabel = UILabel()
@@ -136,6 +137,7 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
           popUpCollectionView.reloadData()
           print("cuca in didselect \(popUpCollectionView.contentSize.height)")
           print("index \(indexPath.row)")
+          currentIndex = indexPath.row
           createBlurView()
      }
      
