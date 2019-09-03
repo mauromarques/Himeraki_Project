@@ -17,7 +17,7 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
     var favorite3 = Favorite(date: Date("2017-5-9")
         , categories: [Category.init(name: "Clothes", prompt: "Princess dress"), Category.init(name: "Color", prompt: "pink")])
     var favorite4 = Favorite(date: Date("2019-2-15")
-        , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
+        , categories: [Category.init(name: "Animal", prompt: "Cat"), Category.init(name: "Color", prompt: "Blue & Red"), Category.init(name: "character", prompt: "ash ketchun (pokemon)"), Category.init(name: "scenario", prompt: "war battlefield"), Category.init(name: "scenario", prompt: "war battlefield")])
     var favorite5 = Favorite(date: Date("2019-10-10")
         , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
     var favorite6 = Favorite(date: Date("2012-3-28")
@@ -26,10 +26,23 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
     
     var favorites = [Favorite]()
+     var favoriteForDetails = Favorite(date: Date("2025-9-30")
+          , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
+    let popUpCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+
     
     let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
     let blurEffectView = UIVisualEffectView()
     var centerYConstraint = NSLayoutConstraint()
+    var popUpCollectionHeight = 18
+     
+     var currentPopUp:UIView?
+//     let detailsContainer = UIView()
+//     let card = UIView()
+//     let dateLabel = UILabel()
+//     let line = UIView()
+//     let closeButton = UIButton()
+//     let deleteButton = UIButton()
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -47,18 +60,11 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         
         setNavBar()
         blurEffectView.effect=blurEffect
-
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        //        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-//        //        layout.itemSize = CGSize(width: view.bounds.width*0.9034, height: 104)
-//        layout.minimumLineSpacing = 15
-        
-//        let myCollectionView:UICollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(favoritesCell.self, forCellWithReuseIdentifier: "MyCell")
+        popUpCollectionView.register(DetailCells.self, forCellWithReuseIdentifier: "MyCell")
         collectionView.backgroundColor = UIColor.white
-//        self.view.addSubview(myCollectionView)
     }
     
     func setNavBar (){
@@ -79,10 +85,20 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == popUpCollectionView {
+            return CGSize(width: 334.adjusted, height: 18)
+        }
         return CGSize(width: view.bounds.width*0.9034, height: 104)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == popUpCollectionView {
+            let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath) as! DetailCells
+            myCell.categoryLabel.text = favoriteForDetails.categories[indexPath.row].name
+            myCell.categoryLabel.text = myCell.categoryLabel.text?.uppercased()
+            myCell.nameLabel.text = favoriteForDetails.categories[indexPath.row].prompt
+            return myCell
+        }
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath) as! favoritesCell
         myCell.layer.cornerRadius = 15
         myCell.layer.applySketchShadow(color: .black, alpha: 0.3, x: 0, y: 2, blur: 11, spread: 0)
@@ -106,12 +122,23 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
     }
    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == popUpCollectionView {
+            return favoriteForDetails.categories.count
+        }
         return favorites.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("index \(indexPath.row)")
-        createBlurView()
+     if collectionView == popUpCollectionView {
+          
+     } else {
+          favoriteForDetails = favorites[indexPath.row]
+          popUpCollectionView.reloadData()
+          print("cuca in didselect \(popUpCollectionView.contentSize.height)")
+          print("index \(indexPath.row)")
+          createBlurView()
+     }
+     
     }
     
     override func didReceiveMemoryWarning() {
@@ -120,11 +147,17 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == popUpCollectionView{
+            return 10
+        }
         return 15
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         //top, left, bottom, right
+        if collectionView == popUpCollectionView{
+            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        }
         return UIEdgeInsets(top: 30, left: 20, bottom: 30, right: 20)
     }
     

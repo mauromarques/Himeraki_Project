@@ -86,7 +86,29 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
+class Device {
+    // Base height in point, use the same as Sketch file
+    static let base: CGFloat = 414
+    static var ratio: CGFloat {
+        return UIScreen.main.bounds.width / base
+    }
+}
 
+extension CGFloat {
+    var adjusted: CGFloat {
+        return self * Device.ratio
+    }
+}
+extension Double {
+    var adjusted: CGFloat {
+        return CGFloat(self) * Device.ratio
+    }
+}
+extension Int {
+    var adjusted: CGFloat {
+        return CGFloat(self) * Device.ratio
+    }
+}
 
 
 

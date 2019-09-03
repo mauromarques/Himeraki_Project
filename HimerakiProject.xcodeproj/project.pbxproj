@@ -10,6 +10,7 @@
 		2F8C7F07231D048100BE4746 /* xForPopUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C7F06231D048100BE4746 /* xForPopUp.png */; };
 		2F8C7F09231D04F200BE4746 /* trashForPopUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C7F08231D04F200BE4746 /* trashForPopUp.png */; };
 		2F8C7F0C231D138600BE4746 /* favoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C7F0B231D138500BE4746 /* favoritesModel.swift */; };
+		2F8C7F0E231D54C600BE4746 /* DetailCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C7F0D231D54C600BE4746 /* DetailCells.swift */; };
 		2FCDBC722318026400F2FB91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC712318026400F2FB91 /* AppDelegate.swift */; };
 		2FCDBC742318026400F2FB91 /* favoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC732318026400F2FB91 /* favoritesViewController.swift */; };
 		2FCDBC772318026400F2FB91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FCDBC752318026400F2FB91 /* Main.storyboard */; };
@@ -33,9 +34,10 @@
 		2F8C7F06231D048100BE4746 /* xForPopUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xForPopUp.png; sourceTree = "<group>"; };
 		2F8C7F08231D04F200BE4746 /* trashForPopUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trashForPopUp.png; sourceTree = "<group>"; };
 		2F8C7F0B231D138500BE4746 /* favoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesModel.swift; sourceTree = "<group>"; };
+		2F8C7F0D231D54C600BE4746 /* DetailCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCells.swift; sourceTree = "<group>"; };
 		2FCDBC6E2318026400F2FB91 /* HimerakiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HimerakiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCDBC712318026400F2FB91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2FCDBC732318026400F2FB91 /* favoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favoritesViewController.swift; sourceTree = "<group>"; };
+		2FCDBC732318026400F2FB91 /* favoritesViewController.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = favoritesViewController.swift; sourceTree = "<group>"; };
 		2FCDBC762318026400F2FB91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2FCDBC792318026400F2FB91 /* HimerakiProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HimerakiProject.xcdatamodel; sourceTree = "<group>"; };
 		2FCDBC7B2318026500F2FB91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				2FCDBC9823191F5700F2FB91 /* articleView.swift */,
 				2FCDBCA6231A90F600F2FB91 /* FavoritePopUpView.swift */,
 				2FCDBCA22319794100F2FB91 /* FavoriteCells.swift */,
+				2F8C7F0D231D54C600BE4746 /* DetailCells.swift */,
 			);
 			path = "View Setups";
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				2FCDBCA32319794100F2FB91 /* FavoriteCells.swift in Sources */,
 				2FCDBC9923191F5700F2FB91 /* articleView.swift in Sources */,
 				2F8C7F0C231D138600BE4746 /* favoritesModel.swift in Sources */,
+				2F8C7F0E231D54C600BE4746 /* DetailCells.swift in Sources */,
 				2FCDBCA5231A77C000F2FB91 /* BaseCell.swift in Sources */,
 				2FCDBCA7231A90F600F2FB91 /* FavoritePopUpView.swift in Sources */,
 				2FCDBC7A2318026400F2FB91 /* HimerakiProject.xcdatamodeld in Sources */,
