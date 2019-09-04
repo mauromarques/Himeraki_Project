@@ -11,7 +11,7 @@ import UIKit
 
 extension favoritesViewController {
     
-    func createBlurView() {
+    public func createBlurView() {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blurEffectView.alpha = 0

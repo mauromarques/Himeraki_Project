@@ -38,12 +38,6 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
      
      var currentPopUp:UIView?
      var currentIndex = Int()
-//     let detailsContainer = UIView()
-//     let card = UIView()
-//     let dateLabel = UILabel()
-//     let line = UIView()
-//     let closeButton = UIButton()
-//     let deleteButton = UIButton()
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
