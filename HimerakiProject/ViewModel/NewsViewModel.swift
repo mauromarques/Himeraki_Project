@@ -38,7 +38,7 @@ class NewsViewModel: NSObject {
     }
 }
 
-extension NewsViewModel: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension NewsViewModel: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return items.count
@@ -76,40 +76,7 @@ extension NewsViewModel: UICollectionViewDataSource, UICollectionViewDelegateFlo
         }
         return UICollectionViewCell()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let item = items[indexPath.section]
-        var size = CGSize(width: UIScreen.main.bounds.width - 40, height: 100)
-        
-        switch item.type {
-        case .challenge:
-            size.height = 187
-            return size
-        case .featuredArtist:
-            size.height = 412
-            return size
-        case .supplyReview:
-            size.height = 326
-            return size
-        case .article:
-            size.height = 380
-            return size
-        case .tipsAndTricks:
-            size.height = 206
-            return size
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 30, left: 20, bottom: 0, right: 20)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        cell.preservesSuperviewLayoutMargins = true
-    }
 }
-
 
 class ProfileViewModelNamePictureItem: NewsViewModelItem {
     
