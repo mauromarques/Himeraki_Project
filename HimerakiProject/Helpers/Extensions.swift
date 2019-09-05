@@ -18,6 +18,12 @@ extension UIColor {
         self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
     }
 }
+
+extension CGFloat {
+    var degressToRadians: CGFloat { return self * .pi / 180}
+    var radiansToDegrees: CGFloat { return self * 180 / .pi}
+}
+
 extension CALayer {
     
     //Used to apply Shadow with the same attributes found in Sketch.
