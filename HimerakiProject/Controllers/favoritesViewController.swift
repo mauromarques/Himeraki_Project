@@ -11,22 +11,6 @@ var favorites = [Favorite]()
 
 class favoritesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var favorite1 = Favorite(date: Date("2014-10-10")
-        , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red"), Category.init(name: "Character", prompt: "Noelle Silva")])
-    var favorite2 = Favorite(date: Date("2016-8-12")
-        , categories: [Category.init(name: "landscape", prompt: "mountain with a lake")])
-    var favorite3 = Favorite(date: Date("2017-5-9")
-        , categories: [Category.init(name: "Clothes", prompt: "Princess dress"), Category.init(name: "Color", prompt: "pink")])
-    var favorite4 = Favorite(date: Date("2019-2-15")
-        , categories: [Category.init(name: "Animal", prompt: "Cat"), Category.init(name: "Color", prompt: "Blue & Red"), Category.init(name: "character", prompt: "ash ketchun (pokemon)"), Category.init(name: "scenario", prompt: "war battlefield"), Category.init(name: "scenario", prompt: "war battlefield")])
-    var favorite5 = Favorite(date: Date("2019-10-10")
-        , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
-    var favorite6 = Favorite(date: Date("2012-3-28")
-        , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
-    var favorite7 = Favorite(date: Date("2014-10-10")
-        , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
-    
-    
      var favoriteForDetails = Favorite(date: Date("2025-9-30")
           , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
     let popUpCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -132,7 +116,7 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         myCell.previewLabel.text?.removeLast(2)
         myCell.previewLabel.text = myCell.previewLabel.text! + "."
         myCell.categoriesLabel.text = myCell.categoriesLabel.text?.uppercased()
-        myCell.dateLabel.text = favorites[indexPath.row].date.asString(style: .short)
+        myCell.dateLabel.text = favorites[indexPath.row].date.asString(style: .medium)
         
         return myCell
     }

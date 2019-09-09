@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Favorite: Decodable {
+struct Favorite: Codable {
     let date: Date
     let categories: [Category]
 }
 
-struct Category: Decodable {
+struct Category: Codable {
     let name: String
     let prompt: String
 }

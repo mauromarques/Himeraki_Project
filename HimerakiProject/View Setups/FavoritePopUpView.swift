@@ -122,6 +122,8 @@ extension favoritesViewController {
             self.blurEffectView.layoutIfNeeded()
         }) { (true) in
             favorites.remove(at: self.currentIndex)
+            let favoritesData = try! JSONEncoder().encode(favorites)
+            UserDefaults.standard.set(favoritesData, forKey: "favorites")
             self.collectionView.reloadData()
             if favorites.count == 0 {
                 self.nothingToSee.alpha=1
@@ -323,8 +325,10 @@ extension generateViewController {
                 print ("tutua date \(dateString)")
                 
                 let newFavorite = Favorite(date: Date(dateString), categories: self.arrayOfCategories)
-                favorites.append(newFavorite)
-                
+                favorites.insert(newFavorite, at: 0)
+                let favoritesData = try! JSONEncoder().encode(favorites)
+                UserDefaults.standard.set(favoritesData, forKey: "favorites")
+               
                 print ("tutua newfavorite \(newFavorite)")
             })
         }

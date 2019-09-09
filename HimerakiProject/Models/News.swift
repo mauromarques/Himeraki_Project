@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct News: Decodable {
     var topTitle: String?
     var pictureUrl: String?
     var title: String?
     var subtitle: String?
+    var instaLink: String?
 }
+
