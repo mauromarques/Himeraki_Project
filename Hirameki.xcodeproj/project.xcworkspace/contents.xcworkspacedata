@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:HimerakiProject.xcodeproj">
+      location = "self:/Users/mauromarques/Downloads/HimerakiProject/Hirameki.xcodeproj">
    </FileRef>
 </Workspace>

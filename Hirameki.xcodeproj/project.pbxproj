@@ -280,7 +280,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2FCDBC692318026400F2FB91 /* Build configuration list for PBXProject "HimerakiProject" */;
+			buildConfigurationList = 2FCDBC692318026400F2FB91 /* Build configuration list for PBXProject "Hirameki" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -539,7 +539,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2FCDBC692318026400F2FB91 /* Build configuration list for PBXProject "HimerakiProject" */ = {
+		2FCDBC692318026400F2FB91 /* Build configuration list for PBXProject "Hirameki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2FCDBC812318026500F2FB91 /* Debug */,
