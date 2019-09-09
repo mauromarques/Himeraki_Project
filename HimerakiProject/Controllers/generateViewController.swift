@@ -9,20 +9,24 @@
 import UIKit
 
 class generateViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
+    
+    var arrayOfCategories = [Category(name: "teste", prompt: "test")]
+    
     var confirmButton = UIButton()
     var closeButton = UIButton()
     var gradientLayer: CAGradientLayer!
-    var categories = ["Character", "Animal", "Colors", "Actions", "Clothes", "Flowers", "Weapons", "Scenarios", "Character", "Animal", "Colors", "Actions", "Clothes", "Flowers", "Weapons", "Scenarios", "Character", "Animal", "Colors", "Actions", "Clothes", "Flowers", "Weapons", "Scenarios"]
+    var categories = ["Character", "Animal", "Colors", "Actions", "Clothes", "Flowers", "Weapons", "Scenarios"]
     
     let popUpCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     
-    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
     let blurEffectView = UIVisualEffectView()
     var centerYConstraint = NSLayoutConstraint()
     var popUpCollectionHeight = 18
     
+    var isSelected = Bool()
+    var numberOfSelections = 0
     var currentPopUp:UIView?
     var currentIndex = Int()
     
@@ -52,6 +56,8 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
         popUpCollectionView.register(generateHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MyHeader")
         popUpCollectionView.register(DetailCells.self, forCellWithReuseIdentifier: "MyCell")
         
+        blurEffectView.effect = blurEffect
+        
         closeButton = createCloseButton()
         confirmButton = createConfirmButton()
         applyConstraints()
@@ -64,10 +70,43 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
     
     @objc func closeButtonPressed() {
         print("close button pressed")
+        self.dismiss(animated: true, completion: nil)
     }
     @objc func confirmButtonPressed() {
+        categoriesToGenerate.removeAll()
+        arrayOfCategories.removeAll()
         print("confirm button pressed")
+        let selectedCellsIndex = collectionView.indexPathsForSelectedItems?.count
+        let selectedCellsIndex2 = collectionView.indexPathsForSelectedItems!
+        print("number of selected indexes \(String(describing: selectedCellsIndex))")
+
+        for categorySelected in selectedCellsIndex2 {
+            let cell = collectionView.cellForItem(at: categorySelected) as! categoriesCheckBox
+            let category = cell.categoryLabel.text
+            for categoryModel in categoriesToGetPrompt {
+                if categoryModel.name == category {
+                    categoriesToGenerate.append(categoryModel)
+                }
+            }
+        }
+        print("tutua \(categoriesToGenerate.count)")
+        
+//        let date = Date()
+//        let calendar = Calendar.current
+//        let components = calendar.dateComponents([.year, .month, .day], from: date)
+//        
+//        let year =  "\(components.year ?? 1)"
+//        let month = "\(components.month ?? 1)"
+//        let day = "\(components.day ?? 1)"
+//        let dateString = year + "-" + month + "-" + day
+//        print ("tutua date \(dateString)")
+//        
+//        let newFavorite = Favorite(date: Date(dateString), categories: arrayOfCategories)
+//        
+//        print ("tutua newfavorite \(newFavorite)")
+        
         createBlurView()
+        
 
     }
     
@@ -104,45 +143,74 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
     
         if collectionView == popUpCollectionView {
             let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath) as! DetailCells
-//            myCell.categoryLabel.text = favoriteForDetails.categories[indexPath.row].name
+            let cat = categoriesToGenerate[indexPath.row].name
+            myCell.categoryLabel.text = cat
             myCell.categoryLabel.text = myCell.categoryLabel.text?.uppercased()
-//            myCell.nameLabel.text = favoriteForDetails.categories[indexPath.row].prompt
+            
+            let number = Int.random(in: 0 ..< categoriesToGenerate[indexPath.row].prompt.count)
+            let name = categoriesToGenerate[indexPath.row].prompt[number]
+            myCell.nameLabel.text = name
+            
+            let catiguria = Category(name: cat, prompt: name)
+            arrayOfCategories.append(catiguria)
+            
+            print("tutua categories in cell: \(arrayOfCategories)")
+            
             return myCell
         }
         
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath) as! categoriesCheckBox
         myCell.backgroundColor = .clear
-        myCell.categoryLabel.text = categories[indexPath.row]
+        myCell.categoryLabel.text = categoriesToGetPrompt[indexPath.row].name
         return myCell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == popUpCollectionView {
-            return 4
+            return categoriesToGenerate.count
 //            return favoriteForDetails.categories.count
         }
-        return categories.count
+        return categoriesToGetPrompt.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let cell = collectionView.cellForItem(at: indexPath) as! categoriesCheckBox
+        let indexPath2 = collectionView.indexPathsForSelectedItems
         if collectionView == popUpCollectionView {
             
         } else {
-        
-        let cell = collectionView.cellForItem(at: indexPath) as! categoriesCheckBox
-        if cell.isSelected == true {
-            cell.checkBoxView.backgroundColor = .white
-        }
-
-            print("index \(indexPath.row)")
-        }
+            
+            if numberOfSelections >= 4 {
+                collectionView.deselectItem(at: indexPath, animated: true)
+                print("cell was deselected")
+            } else {
+                numberOfSelections += 1
+                
+                if cell.isSelected == true {
+                    cell.checkBoxView.backgroundColor = .white
+                    confirmButton.isEnabled = true
+                }
+                
+                print("index \(indexPath.row)")
+            }
+            }
+        print("SELECT number of selections \(numberOfSelections), number of selected indexes \(String(describing: indexPath2?.count))")
     }
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! categoriesCheckBox
-        if cell.isSelected == false {
-            cell.checkBoxView.backgroundColor = .clear
+        let indexPath2 = collectionView.indexPathsForSelectedItems
+        if cell.checkBoxView.backgroundColor == .clear {
+            
+        } else {
+            if cell.isSelected == false {
+                cell.checkBoxView.backgroundColor = .clear
+                numberOfSelections -= 1
+        }
+        }
+        print("DESELECT number of selections \(numberOfSelections), number of selected indexes \(String(describing: indexPath2?.count))")
+        if indexPath2?.count == 0 {
+            confirmButton.isEnabled=false
         }
     }
     

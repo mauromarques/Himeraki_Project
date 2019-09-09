@@ -11,7 +11,7 @@ import UIKit
 
 extension favoritesViewController {
     
-    public func createBlurView() {
+    func createBlurView() {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blurEffectView.alpha = 0
@@ -63,7 +63,7 @@ extension favoritesViewController {
     
     func createDateLabel(card: UIView) {
         let dateLabel = UILabel()
-        dateLabel.text="26/07/2019"
+        dateLabel.text=favoriteForDetails.date.asString(style: .full)
         dateLabel.font = UIFont(name: ".SFUIText-Medium", size: 15)
         dateLabel.textColor = UIColor.init(red: 210, green: 188, blue: 198)
         card.addSubview(dateLabel)
@@ -121,7 +121,7 @@ extension favoritesViewController {
             self.centerYConstraint.constant = -(self.view.frame.height/2)-(267/2)
             self.blurEffectView.layoutIfNeeded()
         }) { (true) in
-            self.favorites.remove(at: self.currentIndex)
+            favorites.remove(at: self.currentIndex)
             self.collectionView.reloadData()
             UIView.animate(withDuration: 0.2, animations: {
                 self.blurEffectView.alpha = 0
@@ -159,6 +159,30 @@ extension favoritesViewController {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 extension generateViewController {
     
     public func createBlurView() {
@@ -167,6 +191,7 @@ extension generateViewController {
         blurEffectView.alpha = 0
         let currentWindow: UIWindow? = UIApplication.shared.keyWindow
         currentWindow?.addSubview(blurEffectView)
+        self.popUpCollectionView.reloadData()
         createDetailsContainer(view: blurEffectView)
         print("cuca after create container \(self.popUpCollectionView.contentSize.height)")
         UIView.animate(withDuration: 0.2, animations: {
@@ -213,7 +238,17 @@ extension generateViewController {
     
     func createDateLabel(card: UIView) {
         let dateLabel = UILabel()
-        dateLabel.text="26/07/2019"
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        
+        let year =  "\(components.year ?? 1)"
+        let month = "\(components.month ?? 1)"
+        let day = "\(components.day ?? 1)"
+        let dateString = year + "-" + month + "-" + day
+        print ("tutua date \(dateString)")
+        
+        dateLabel.text = Date(dateString).asString(style: .full)
         dateLabel.font = UIFont(name: ".SFUIText-Medium", size: 15)
         dateLabel.textColor = UIColor.init(red: 210, green: 188, blue: 198)
         card.addSubview(dateLabel)
@@ -260,7 +295,7 @@ extension generateViewController {
         deleteButton.layer.applySketchShadow(color: .black, alpha: 0.3, x: 0, y: 2, blur: 11, spread: 0)
         deleteButton.layer.cornerRadius = 15
         deleteButton.backgroundColor = .white
-        deleteButton.setImage(UIImage(named: "trashForPopUp"), for: .normal)
+        deleteButton.setImage(UIImage(named: "heart"), for: .normal)
         container.addSubview(deleteButton)
         deleteButton.anchor(top: card.bottomAnchor, leading: nil, bottom: container.bottomAnchor, trailing: container.trailingAnchor, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: CGSize(width: view.frame.width*0.43, height: 0))
         deleteButton.addTarget(self, action: #selector(deleteAtIndex), for: .touchUpInside)
@@ -274,8 +309,20 @@ extension generateViewController {
             UIView.animate(withDuration: 0.2, animations: {
                 self.blurEffectView.alpha = 0
             }, completion: { (true) in
-                self.currentPopUp!.removeFromSuperview()
-                self.currentPopUp = nil
+                let date = Date()
+                let calendar = Calendar.current
+                let components = calendar.dateComponents([.year, .month, .day], from: date)
+                
+                let year =  "\(components.year ?? 1)"
+                let month = "\(components.month ?? 1)"
+                let day = "\(components.day ?? 1)"
+                let dateString = year + "-" + month + "-" + day
+                print ("tutua date \(dateString)")
+                
+                let newFavorite = Favorite(date: Date(dateString), categories: self.arrayOfCategories)
+                favorites.append(newFavorite)
+                
+                print ("tutua newfavorite \(newFavorite)")
             })
         }
     }

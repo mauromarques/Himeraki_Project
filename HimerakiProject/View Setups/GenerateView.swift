@@ -27,10 +27,12 @@ extension generateViewController{
     
     func createConfirmButton() -> UIButton{
         let button = UIButton()
+        button.isEnabled = false
         button.layer.cornerRadius = 15
         button.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: 2, blur: 4, spread: 0)
         button.backgroundColor = .white
         button.setImage(UIImage(named:"yesForModal"), for: .normal)
+        button.setImage(UIImage(named:"confirmDisabled"), for: .disabled)
         button.contentMode = .center
         button.addTarget(self, action: #selector(confirmButtonPressed), for: .touchUpInside)
         return button

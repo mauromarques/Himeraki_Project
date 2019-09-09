@@ -41,6 +41,8 @@ class NewsViewController: UICollectionViewController, UICollectionViewDelegateFl
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         print("item selected")
+        let vc = fullArticleViewController()
+        self.present(vc, animated: true, completion: nil)
         
     }
     

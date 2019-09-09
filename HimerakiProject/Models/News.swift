@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct News {
+struct News: Decodable {
     var topTitle: String?
     var pictureUrl: String?
     var title: String?

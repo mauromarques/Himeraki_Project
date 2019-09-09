@@ -6,6 +6,9 @@
 //  Copyright © 2019 Mauro Marques. All rights reserved.
 //
 import UIKit
+
+var favorites = [Favorite]()
+
 class favoritesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     
@@ -25,7 +28,7 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
     var favorite7 = Favorite(date: Date("2014-10-10")
         , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
     
-    var favorites = [Favorite]()
+    
      var favoriteForDetails = Favorite(date: Date("2025-9-30")
           , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
     let popUpCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -50,7 +53,8 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        favorites = [favorite1, favorite2, favorite3, favorite4, favorite5, favorite6, favorite7]
+        favorites.append(contentsOf: [favorite1, favorite2, favorite3, favorite4, favorite5, favorite6, favorite7])
+     
         print("\(favorites)")
         
         setNavBar()
@@ -77,6 +81,7 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        collectionView.reloadData()
         }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

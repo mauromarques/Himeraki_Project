@@ -72,6 +72,7 @@ class fullArticleViewController: UIViewController, UITextViewDelegate {
     
     @objc func closeButtonPressed() {
         print("close button pressed")
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
