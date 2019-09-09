@@ -18,6 +18,7 @@
 		2F8C7F18232002DE00BE4746 /* yesForModal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C7F17232002DD00BE4746 /* yesForModal.png */; };
 		2F8C7F1A2326442700BE4746 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C7F192326442700BE4746 /* heart.png */; };
 		2F8C7F1C23264B6A00BE4746 /* confirmDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C7F1B23264B6A00BE4746 /* confirmDisabled.png */; };
+		2F8C7F1E23264F6D00BE4746 /* nothing.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C7F1D23264F6D00BE4746 /* nothing.png */; };
 		2FCDBC722318026400F2FB91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC712318026400F2FB91 /* AppDelegate.swift */; };
 		2FCDBC742318026400F2FB91 /* favoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBC732318026400F2FB91 /* favoritesViewController.swift */; };
 		2FCDBC772318026400F2FB91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FCDBC752318026400F2FB91 /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		2F8C7F17232002DD00BE4746 /* yesForModal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yesForModal.png; sourceTree = "<group>"; };
 		2F8C7F192326442700BE4746 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		2F8C7F1B23264B6A00BE4746 /* confirmDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirmDisabled.png; sourceTree = "<group>"; };
+		2F8C7F1D23264F6D00BE4746 /* nothing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nothing.png; sourceTree = "<group>"; };
 		2FCDBC6E2318026400F2FB91 /* HimerakiProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HimerakiProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCDBC712318026400F2FB91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FCDBC732318026400F2FB91 /* favoritesViewController.swift */ = {isa = PBXFileReference; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = favoritesViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		2FCDBC922319117300F2FB91 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2F8C7F1D23264F6D00BE4746 /* nothing.png */,
 				2F8C7F1B23264B6A00BE4746 /* confirmDisabled.png */,
 				2F8C7F08231D04F200BE4746 /* trashForPopUp.png */,
 				2F8C7F192326442700BE4746 /* heart.png */,
@@ -307,6 +310,7 @@
 				2FCDBC9D231933CD00F2FB91 /* x.png in Resources */,
 				2FCDBC7F2318026500F2FB91 /* LaunchScreen.storyboard in Resources */,
 				2F8C7F1A2326442700BE4746 /* heart.png in Resources */,
+				2F8C7F1E23264F6D00BE4746 /* nothing.png in Resources */,
 				2F8C7F18232002DE00BE4746 /* yesForModal.png in Resources */,
 				2FCDBC7C2318026500F2FB91 /* Assets.xcassets in Resources */,
 				2F8C7F07231D048100BE4746 /* xForPopUp.png in Resources */,
@@ -499,7 +503,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3SNY4A7B39;
+				DEVELOPMENT_TEAM = CPYT3A73TA;
 				INFOPLIST_FILE = HimerakiProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -518,7 +522,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3SNY4A7B39;
+				DEVELOPMENT_TEAM = CPYT3A73TA;
 				INFOPLIST_FILE = HimerakiProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (

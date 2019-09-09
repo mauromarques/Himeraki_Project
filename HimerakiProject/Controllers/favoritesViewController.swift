@@ -11,8 +11,6 @@ var favorites = [Favorite]()
 
 class favoritesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    
-    
     var favorite1 = Favorite(date: Date("2014-10-10")
         , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red"), Category.init(name: "Character", prompt: "Noelle Silva")])
     var favorite2 = Favorite(date: Date("2016-8-12")
@@ -42,6 +40,13 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
      var currentPopUp:UIView?
      var currentIndex = Int()
     
+     let nothingToSee:UIImageView={
+          var image = UIImageView()
+          image.image=UIImage(named: "nothing")
+          image.contentMode = .scaleAspectFit
+          return image
+     }()
+     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -53,7 +58,7 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        favorites.append(contentsOf: [favorite1, favorite2, favorite3, favorite4, favorite5, favorite6, favorite7])
+//        favorites.append(contentsOf: [favorite1, favorite2, favorite3, favorite4, favorite5, favorite6, favorite7])
      
         print("\(favorites)")
         
@@ -64,8 +69,14 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         collectionView.register(favoritesCell.self, forCellWithReuseIdentifier: "MyCell")
         popUpCollectionView.register(DetailCells.self, forCellWithReuseIdentifier: "MyCell")
         collectionView.backgroundColor = UIColor.white
+        setImage()
     }
-    
+     func setImage(){
+          view.addSubview(nothingToSee)
+          nothingToSee.translatesAutoresizingMaskIntoConstraints = false
+          nothingToSee.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 60), size: CGSize(width: 0, height: 160))
+          nothingToSee.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor, constant: 0).isActive=true
+     }
     func setNavBar (){
     
         title = "Favorites"
@@ -82,7 +93,12 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
-        }
+          if favorites.count == 0 {
+               nothingToSee.alpha = 1
+          } else {
+               nothingToSee.alpha = 0
+          }
+     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == popUpCollectionView {

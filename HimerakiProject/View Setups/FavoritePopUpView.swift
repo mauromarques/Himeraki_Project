@@ -123,6 +123,9 @@ extension favoritesViewController {
         }) { (true) in
             favorites.remove(at: self.currentIndex)
             self.collectionView.reloadData()
+            if favorites.count == 0 {
+                self.nothingToSee.alpha=1
+            }
             UIView.animate(withDuration: 0.2, animations: {
                 self.blurEffectView.alpha = 0
             }, completion: { (true) in
