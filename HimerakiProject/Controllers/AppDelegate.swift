@@ -20,8 +20,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = CustomTabController()
         self.window?.makeKeyAndVisible()
         
-        let placeData = UserDefaults.standard.data(forKey: "favorites")
-        favorites = try! JSONDecoder().decode([Favorite].self, from: placeData!)
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore
+        {
+            print("Not first launch.")
+            let placeData = UserDefaults.standard.data(forKey: "favorites")
+            favorites = try! JSONDecoder().decode([Favorite].self, from: placeData!)
+        }
+        else
+        {
+            print("First launch")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            let favoritesData = try! JSONEncoder().encode(favorites)
+            UserDefaults.standard.set(favoritesData, forKey: "favorites")
+            let placeData = UserDefaults.standard.data(forKey: "favorites")
+            favorites = try! JSONDecoder().decode([Favorite].self, from: placeData!)
+
+        }
+
         print(favorites)
         
         return true
@@ -57,8 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
-        let favoritesData = try! JSONEncoder().encode(favorites)
-        UserDefaults.standard.set(favoritesData, forKey: "favorites")
     }
 
     // MARK: - Core Data stack
