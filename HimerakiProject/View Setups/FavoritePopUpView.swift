@@ -308,28 +308,34 @@ extension generateViewController {
     }
     @objc func deleteAtIndex(sender: UIButton!) {
         UIView.animate(withDuration: 0.3, animations: {
-            self.centerYConstraint.constant = -(self.view.frame.height/2)-(267/2)
+            self.centerYConstraint.constant = (self.view.frame.height/2)+(267/2)
             self.blurEffectView.layoutIfNeeded()
         }) { (true) in
+            let date = Date()
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day], from: date)
+            
+            let year =  "\(components.year ?? 1)"
+            let month = "\(components.month ?? 1)"
+            let day = "\(components.day ?? 1)"
+            let dateString = year + "-" + month + "-" + day
+            print ("tutua date \(dateString)")
+            
+            let newFavorite = Favorite(date: Date(dateString), categories: self.arrayOfCategories)
+            favorites.insert(newFavorite, at: 0)
+            let favoritesData = try! JSONEncoder().encode(favorites)
+            UserDefaults.standard.set(favoritesData, forKey: "favorites")
+            
+            self.dismiss(animated: true, completion: {
+                
+            })
+            
+            print ("tutua newfavorite \(newFavorite)")
+            
             UIView.animate(withDuration: 0.2, animations: {
                 self.blurEffectView.alpha = 0
             }, completion: { (true) in
-                let date = Date()
-                let calendar = Calendar.current
-                let components = calendar.dateComponents([.year, .month, .day], from: date)
                 
-                let year =  "\(components.year ?? 1)"
-                let month = "\(components.month ?? 1)"
-                let day = "\(components.day ?? 1)"
-                let dateString = year + "-" + month + "-" + day
-                print ("tutua date \(dateString)")
-                
-                let newFavorite = Favorite(date: Date(dateString), categories: self.arrayOfCategories)
-                favorites.insert(newFavorite, at: 0)
-                let favoritesData = try! JSONEncoder().encode(favorites)
-                UserDefaults.standard.set(favoritesData, forKey: "favorites")
-               
-                print ("tutua newfavorite \(newFavorite)")
             })
         }
     }

@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let myNotificationKey = "mykey"
+
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         let newRed = CGFloat(red)/255
