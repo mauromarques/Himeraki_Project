@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol TabBarSelectDelegate {
+    func getIndex(index: Int)
+}
+
 class generateViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var arrayOfCategories = [Category(name: "teste", prompt: "test")]
+    
+    var tabSelectDelegate: TabBarSelectDelegate?
     
     var confirmButton = UIButton()
     var closeButton = UIButton()

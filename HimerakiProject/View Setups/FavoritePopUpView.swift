@@ -326,6 +326,8 @@ extension generateViewController {
             let favoritesData = try! JSONEncoder().encode(favorites)
             UserDefaults.standard.set(favoritesData, forKey: "favorites")
             
+            self.tabSelectDelegate?.getIndex(index: 1)
+            
             self.dismiss(animated: true, completion: {
                 
             })

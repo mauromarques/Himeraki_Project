@@ -11,7 +11,7 @@ import UIKit
 class NewsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     let viewModel = NewsViewModel()
-        
+    
     init(collectionViewLayout layout: UICollectionViewFlowLayout) {
         super.init(collectionViewLayout: layout)
     }
@@ -36,6 +36,9 @@ class NewsViewController: UICollectionViewController, UICollectionViewDelegateFl
         
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
+        
+        
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -87,6 +87,15 @@ class CustomTabController: UITabBarController {
     
     @objc func presentVC() {
         let vc = generateViewController(collectionViewLayout: layout)
+        vc.tabSelectDelegate = self
         self.present(vc, animated: true, completion: nil)
     }
+}
+
+extension CustomTabController: TabBarSelectDelegate {
+    
+    func getIndex(index: Int) {
+        selectedIndex = index
+    }
+    
 }
