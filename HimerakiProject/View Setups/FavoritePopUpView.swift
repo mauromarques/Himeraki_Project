@@ -85,7 +85,7 @@ extension favoritesViewController {
         closeButton.layer.applySketchShadow(color: .black, alpha: 0.3, x: 0, y: 2, blur: 11, spread: 0)
         closeButton.layer.cornerRadius = 15
         closeButton.backgroundColor = .white
-        closeButton.setImage(UIImage(named: "xForPopUp"), for: .normal)
+        closeButton.setImage(UIImage(named: "xForPop"), for: .normal)
         container.addSubview(closeButton)
         closeButton.anchor(top: card.bottomAnchor, leading: container.leadingAnchor, bottom: container.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: CGSize(width: view.frame.width*0.4396, height: 0))
         closeButton.addTarget(self, action: #selector(dismissPopUp), for: .touchUpInside)
@@ -275,7 +275,7 @@ extension generateViewController {
         closeButton.layer.applySketchShadow(color: .black, alpha: 0.3, x: 0, y: 2, blur: 11, spread: 0)
         closeButton.layer.cornerRadius = 15
         closeButton.backgroundColor = .white
-        closeButton.setImage(UIImage(named: "xForPopUp"), for: .normal)
+        closeButton.setImage(UIImage(named: "xForPop"), for: .normal)
         container.addSubview(closeButton)
         closeButton.anchor(top: card.bottomAnchor, leading: container.leadingAnchor, bottom: container.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), size: CGSize(width: view.frame.width*0.4396, height: 0))
         closeButton.addTarget(self, action: #selector(dismissPopUp), for: .touchUpInside)
