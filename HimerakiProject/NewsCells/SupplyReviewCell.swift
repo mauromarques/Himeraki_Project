@@ -9,11 +9,21 @@
 import UIKit
 
 class SupplyReviewCell: BaseNewsCell {
-    
-    let label3 = UILabel()
-    
+        
     static var identifier: String {
         return String(describing: self)
+    }
+    
+    var new: News? {
+        didSet {
+            guard let new = new else { return }
+            guard let url = new.pictureUrl else { return }
+            
+            imageView.loadImage(urlString: url)
+            headerTitle.text = new.topTitle
+            mainTitle.text = new.title
+            subTitle.text = new.subtitle
+        }
     }
     
     override func setupViews() {
@@ -26,7 +36,6 @@ class SupplyReviewCell: BaseNewsCell {
         titleContentView.backgroundColor = .white
         
         imageView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 19, left: 26, bottom: 0, right: 0))
-//        imageView.image = #imageLiteral(resourceName: "winsor-newoton-watercolor-markers-twin-tip.1541082645")
         
         headerTitle.text = "SUPPLY REVIEW"
         headerTitle.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 18))

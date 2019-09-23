@@ -36,6 +36,9 @@
 		2FCDBCA32319794100F2FB91 /* FavoriteCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA22319794100F2FB91 /* FavoriteCells.swift */; };
 		2FCDBCA5231A77C000F2FB91 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA4231A77C000F2FB91 /* BaseCell.swift */; };
 		2FCDBCA7231A90F600F2FB91 /* FavoritePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA6231A90F600F2FB91 /* FavoritePopUpView.swift */; };
+		8F84EDD6232FD98E00EA5534 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F84EDD5232FD98E00EA5534 /* CloudKit.framework */; };
+		8F84EE0F2337C69700EA5534 /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE0E2337C69700EA5534 /* CachedImageView.swift */; };
+		8F84EE112338B14500EA5534 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE102338B14500EA5534 /* PopAnimator.swift */; };
 		8F946A672321055500673302 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F946A662321055500673302 /* NewsViewController.swift */; };
 		8F946A692321056300673302 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F946A682321056300673302 /* News.swift */; };
 		8F946A6C2321057200673302 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F946A6B2321057200673302 /* NewsViewModel.swift */; };
@@ -85,6 +88,10 @@
 		2FCDBCA22319794100F2FB91 /* FavoriteCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCells.swift; sourceTree = "<group>"; };
 		2FCDBCA4231A77C000F2FB91 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		2FCDBCA6231A90F600F2FB91 /* FavoritePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePopUpView.swift; sourceTree = "<group>"; };
+		8F84EDD3232FD97F00EA5534 /* HimerakiProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HimerakiProject.entitlements; sourceTree = "<group>"; };
+		8F84EDD5232FD98E00EA5534 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		8F84EE0E2337C69700EA5534 /* CachedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
+		8F84EE102338B14500EA5534 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		8F946A662321055500673302 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		8F946A682321056300673302 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		8F946A6B2321057200673302 /* NewsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
@@ -107,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F84EDD6232FD98E00EA5534 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +135,7 @@
 			children = (
 				2FCDBC702318026400F2FB91 /* HimerakiProject */,
 				2FCDBC6F2318026400F2FB91 /* Products */,
+				8F84EDD4232FD98E00EA5534 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +150,7 @@
 		2FCDBC702318026400F2FB91 /* HimerakiProject */ = {
 			isa = PBXGroup;
 			children = (
+				8F84EDD3232FD97F00EA5534 /* HimerakiProject.entitlements */,
 				2F8C7F0A231D137500BE4746 /* Models */,
 				8F946A6A2321057200673302 /* ViewModel */,
 				2FCDBC9723191F1700F2FB91 /* View Setups */,
@@ -179,10 +189,12 @@
 		2FCDBC9323191E3700F2FB91 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8F84EE0E2337C69700EA5534 /* CachedImageView.swift */,
 				8F946A85232106AD00673302 /* Constant.swift */,
 				8F946A83232106A000673302 /* UIMakers.swift */,
 				2FCDBC9423191E5400F2FB91 /* Extensions.swift */,
 				2FCDBCA4231A77C000F2FB91 /* BaseCell.swift */,
+				8F84EE102338B14500EA5534 /* PopAnimator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -211,6 +223,14 @@
 				2F8C7F15231FFC9D00BE4746 /* GenerateView.swift */,
 			);
 			path = "View Setups";
+			sourceTree = "<group>";
+		};
+		8F84EDD4232FD98E00EA5534 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F84EDD5232FD98E00EA5534 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8F946A6A2321057200673302 /* ViewModel */ = {
@@ -277,6 +297,14 @@
 				TargetAttributes = {
 					2FCDBC6D2318026400F2FB91 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -347,7 +375,9 @@
 				8F946A86232106AD00673302 /* Constant.swift in Sources */,
 				8F946A762321058300673302 /* SupplyReviewCell.swift in Sources */,
 				2FCDBC7A2318026400F2FB91 /* HimerakiProject.xcdatamodeld in Sources */,
+				8F84EE0F2337C69700EA5534 /* CachedImageView.swift in Sources */,
 				2FCDBC742318026400F2FB91 /* favoritesViewController.swift in Sources */,
+				8F84EE112338B14500EA5534 /* PopAnimator.swift in Sources */,
 				2FCDBC87231813D300F2FB91 /* fullArticleViewController.swift in Sources */,
 				2FCDBC722318026400F2FB91 /* AppDelegate.swift in Sources */,
 				8F946A752321058300673302 /* ArticleCell.swift in Sources */,
@@ -502,8 +532,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HimerakiProject/HimerakiProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CPYT3A73TA;
+				DEVELOPMENT_TEAM = 3SNY4A7B39;
 				INFOPLIST_FILE = HimerakiProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -521,8 +552,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HimerakiProject/HimerakiProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CPYT3A73TA;
+				DEVELOPMENT_TEAM = 3SNY4A7B39;
 				INFOPLIST_FILE = HimerakiProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -10,9 +10,20 @@ import UIKit
 
 class FeaturedArtistCell: BaseNewsCell {
     
-    
     static var identifier: String {
         return String(describing: self)
+    }
+    
+    var new: News? {
+        didSet {
+            guard let new = new else { return }
+            guard let url = new.pictureUrl else { return }
+            
+            imageView.loadImage(urlString: url)
+            headerTitle.text = new.topTitle
+            mainTitle.text = new.title
+            subTitle.text = new.subtitle
+        }
     }
     
     let featuredArtistView = FeaturedArtistView()
@@ -26,7 +37,6 @@ class FeaturedArtistCell: BaseNewsCell {
         
         //All views are added, they need constraints.
         imageView.fillSuperview()
-//        imageView.image = #imageLiteral(resourceName: "bomie")
         
         featuredArtistView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, size: CGSize(width: 0, height: 140))
         

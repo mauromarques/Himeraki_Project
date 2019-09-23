@@ -155,8 +155,8 @@ extension fullArticleViewController {
         return view
     }
     
-    func createHeaderImageView() -> UIImageView {
-        let imageView = UIImageView()
+    func createHeaderImageView() -> CachedImageView {
+        let imageView = CachedImageView()
         imageView.image = UIImage(named: "bomie")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill

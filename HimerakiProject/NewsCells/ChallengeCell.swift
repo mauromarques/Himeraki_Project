@@ -14,6 +14,18 @@ class ChallengeCell: BaseNewsCell {
         return String(describing: self)
     }
     
+    var new: News? {
+        didSet {
+            guard let new = new else { return }
+            guard let url = new.pictureUrl else { return }
+            
+            imageView.loadImage(urlString: url)
+            headerTitle.text = new.topTitle
+            mainTitle.text = new.title
+            subTitle.text = new.subtitle
+        }
+    }
+    
     let pinkGradient = CAGradientLayer()
     let topPink = UIColor.init(red: 255, green: 204, blue: 228)
     let bottomPink = UIColor.init(red: 255, green: 137, blue: 186)

@@ -14,12 +14,23 @@ class ArticleCell: BaseNewsCell {
         return String(describing: self)
     }
     
+    var new: News? {
+        didSet {
+            guard let new = new else { return }
+            guard let url = new.pictureUrl else { return }
+            
+            imageView.loadImage(urlString: url)
+            headerTitle.text = new.topTitle
+            mainTitle.text = new.title
+            subTitle.text = new.subtitle
+        }
+    }
+    
     override func setupViews() {
         super.setupViews()
         
         //All views are added, they need constraints.
         imageView.fillSuperview()
-//        imageView.image = #imageLiteral(resourceName: "2015-04-27-1430168806-8034176-how_to_make_money_online")
         
         titleContentView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 240, left: 0, bottom: 0, right: 0))
         titleContentView.backgroundColor = UIColor(white: 1, alpha: 0.9)

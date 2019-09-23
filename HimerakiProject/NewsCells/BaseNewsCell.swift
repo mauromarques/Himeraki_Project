@@ -13,7 +13,13 @@ import UIKit
 class BaseNewsCell: UICollectionViewCell {
     
     let titleContentView = UIView(color: .blue, cornerRadius: 0)
-    let imageView = UIImageView(image: UIImage(), cornerRadius: 15)
+    
+    let imageView: CachedImageView = {
+        let iv = CachedImageView()
+        iv.layer.cornerRadius = 15
+        return iv
+    }()
+    
     let headerTitle = UILabel(text: "Header Title", font: UIFont(name: .medium, size: 15)!, numberOfLines: 1, color: .black)
     let mainTitle = UILabel(text: "Main Title", font: UIFont(name: .bold, size: 27)!, numberOfLines: 1, color: .black)
     let subTitle = UILabel(text: "Subtitle Title Subtitle Title Subtitle Title Subtitle Title Subtitle Title Subtitle Title", font: UIFont(name: .medium, size: 15)!, numberOfLines: 0, color: .black)

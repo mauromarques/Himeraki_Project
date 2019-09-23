@@ -12,6 +12,8 @@ class NewsViewController: UICollectionViewController, UICollectionViewDelegateFl
 
     let viewModel = NewsViewModel()
     
+    let refreshControl = UIRefreshControl()
+    
     init(collectionViewLayout layout: UICollectionViewFlowLayout) {
         super.init(collectionViewLayout: layout)
     }
@@ -37,14 +39,32 @@ class NewsViewController: UICollectionViewController, UICollectionViewDelegateFl
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         
+        self.viewModel.onError = { error in
+            let alert = UIAlertController(title: "Error", message: String(describing: error), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            self.refreshControl.endRefreshing()
+        }
         
+        self.viewModel.onChange = {
+            self.collectionView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
+        
+        collectionView.refreshControl = refreshControl
+        
+        refreshControl.addTarget(self.viewModel, action: #selector(NewsViewModel.refresh), for: .valueChanged)
+        
+        self.viewModel.refresh()
         
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        print("item selected")
+        let item = viewModel.items[indexPath.section]
         let vc = fullArticleViewController()
+        vc.new = item.new
+        
         self.present(vc, animated: true, completion: nil)
         
     }

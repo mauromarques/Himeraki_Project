@@ -20,16 +20,6 @@ extension UILabel {
         
     }
 }
-//extension UIImageView {
-//    
-//    convenience init(image: UIImage, cornerRadius: CGFloat) {
-//        self.init(image: image)
-//        self.layer.cornerRadius = cornerRadius
-//        self.clipsToBounds = true
-//        self.contentMode = .scaleAspectFill
-//    }
-//    
-//}
 
 extension UIView {
     convenience init(color: UIColor, cornerRadius: CGFloat) {

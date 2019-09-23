@@ -14,13 +14,15 @@ class fullArticleViewController: UIViewController, UITextViewDelegate {
         static let headerHeight: CGFloat = 404
     }
     
+    var new: News?
+    
     // MARK: - Properties
     var linkUrl = String()
     var artistName = "Park Bom"
     
     var scrollView: UIScrollView!
     var headerContainerView: UIView!
-    var headerImageView: UIImageView!
+    var headerImageView: CachedImageView!
     var headerTopConstraint: NSLayoutConstraint!
     var headerHeightConstraint: NSLayoutConstraint!
     var bottomContainer: UIView!
@@ -68,6 +70,18 @@ class fullArticleViewController: UIViewController, UITextViewDelegate {
         view.addSubview(closeButton)
         
         arrangeConstraints()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        guard let new = new else { return }
+        guard let url = new.pictureUrl else { return }
+        
+        titleLabel.text = new.title
+        categoryLabel.text = new.topTitle
+        textView.text = new.articleText
+        headerImageView.loadImage(urlString: url)
     }
     
     @objc func closeButtonPressed() {
