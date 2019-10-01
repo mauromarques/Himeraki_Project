@@ -43,7 +43,7 @@ extension fullArticleViewController {
         return image
     }
     
-    func createTextView() -> UITextView {
+    func createTextView(textReceived: String) -> UITextView {
         let text = UITextView()
         text.delegate = self
         text.isSelectable = false
@@ -52,8 +52,6 @@ extension fullArticleViewController {
         
         text.translatesAutoresizingMaskIntoConstraints = false
         text.backgroundColor = .clear
-        
-        let theText = "Park Bom (born March 24, 1984), previously known mononymously as Bom, is a South Korean singer. She is best known as a member of the South Korean girl group 2NE1. \n\nPark began her musical career in 2006, featuring on singles released by labelmates Big Bang, Lexy, and Masta Wu. In 2009, she made her debut as a member of 2NE1 as the main vocalist. Park has released two solo singles, You and I and Don't Cry, which reached number one on the Gaon Digital Chart, the national music chart of South Korea.[1] She was awarded Best Digital Single at the 2010 Mnet Asian Music Awards. \n\nFollowing 2NE1's disbandment in 2016, Park left her group's agency, YG Entertainment, in November 2016. In July 2018, she signed with D-Nation Entertainment and released her comeback single, Spring, in March 2019. "
         
         var attributesGrouped: [NSAttributedString.Key : Any] {
             let paragraphStyle = NSMutableParagraphStyle.init()
@@ -67,7 +65,7 @@ extension fullArticleViewController {
             ]
             return attributes
         }
-        let myAttributedString = NSAttributedString(string: theText, attributes: attributesGrouped )
+        let myAttributedString = NSAttributedString(string: textReceived, attributes: attributesGrouped )
         text.attributedText = myAttributedString
         
         let size = CGSize(width: view.frame.width - 60, height: .infinity)
@@ -90,7 +88,7 @@ extension fullArticleViewController {
         link.isSelectable = true
         
         linkUrl = "https://www.instagram.com/newharoobompark/"
-        link.hyperLink(originalText: "Follow \(artistName) on Instagram", hyperLink: "Instagram", urlString: linkUrl)
+        link.hyperLink(originalText: "Follow Park Bom on Instagram", hyperLink: "Instagram", urlString: linkUrl)
         
         return link
     }

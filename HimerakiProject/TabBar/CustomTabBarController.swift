@@ -29,7 +29,7 @@ class CustomTabController: UITabBarController {
         setupView()
         
         viewControllers = [
-            createNavController(viewController: NewsViewController(collectionViewLayout: layout), title: "Home", imageName: "home", offset: -25),
+            createNavController(viewController: NewsViewController(), title: "Home", imageName: "home", offset: -25),
             createNavController(viewController: favoritesViewController(collectionViewLayout: layout), title: "Favorites", imageName: "favorite", offset: 25)
         ]
     }

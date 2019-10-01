@@ -24,6 +24,62 @@ class BaseNewsCell: UICollectionViewCell {
     let mainTitle = UILabel(text: "Main Title", font: UIFont(name: .bold, size: 27)!, numberOfLines: 1, color: .black)
     let subTitle = UILabel(text: "Subtitle Title Subtitle Title Subtitle Title Subtitle Title Subtitle Title Subtitle Title", font: UIFont(name: .medium, size: 15)!, numberOfLines: 0, color: .black)
     
+    var disabledHighlightedAnimation = false
+    
+    func resetTransform() {
+        transform = .identity
+    }
+    
+    func freezeAnimations() {
+        disabledHighlightedAnimation = true
+        layer.removeAllAnimations()
+    }
+    
+    func unfreezeAnimations() {
+        disabledHighlightedAnimation = false
+    }
+    
+    // Make it appears very responsive to touch
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        animate(isHighlighted: true)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        animate(isHighlighted: false)
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        animate(isHighlighted: false)
+    }
+    
+    private func animate(isHighlighted: Bool, completion: ((Bool) -> Void)?=nil) {
+        if disabledHighlightedAnimation {
+            return
+        }
+        let animationOptions: UIView.AnimationOptions = GlobalConstants.isEnabledAllowsUserInteractionWhileHighlightingCard
+            ? [.allowUserInteraction] : []
+        if isHighlighted {
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 1,
+                           initialSpringVelocity: 0,
+                           options: animationOptions, animations: {
+                            self.transform = .init(scaleX: GlobalConstants.cardHighlightedFactor, y: GlobalConstants.cardHighlightedFactor)
+            }, completion: completion)
+        } else {
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 1,
+                           initialSpringVelocity: 0,
+                           options: animationOptions, animations: {
+                            self.transform = .identity
+            }, completion: completion)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

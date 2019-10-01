@@ -41,6 +41,8 @@ class NewsViewModel: NSObject {
         }
     }
     
+    let imageResized = UIImage()
+    
     private let database = CKContainer.default().publicCloudDatabase
     
     var onChange : (() -> Void)?
@@ -147,6 +149,11 @@ class NewsViewModel: NSObject {
         }
         
         self.onChange?()
+    }
+    
+    func resizeImage() -> UIImage {
+        let scaledImage = imageResized.resize(toWidth: imageResized.size.width * GlobalConstants.cardHighlightedFactor)
+        return scaledImage
     }
 
 }

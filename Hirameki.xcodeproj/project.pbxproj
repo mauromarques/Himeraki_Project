@@ -38,7 +38,12 @@
 		2FCDBCA7231A90F600F2FB91 /* FavoritePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA6231A90F600F2FB91 /* FavoritePopUpView.swift */; };
 		8F84EDD6232FD98E00EA5534 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F84EDD5232FD98E00EA5534 /* CloudKit.framework */; };
 		8F84EE0F2337C69700EA5534 /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE0E2337C69700EA5534 /* CachedImageView.swift */; };
-		8F84EE112338B14500EA5534 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE102338B14500EA5534 /* PopAnimator.swift */; };
+		8F84EE172338F7EE00EA5534 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE132338F7EE00EA5534 /* CardTransition.swift */; };
+		8F84EE182338F7EE00EA5534 /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE142338F7EE00EA5534 /* CardPresentationController.swift */; };
+		8F84EE192338F7EE00EA5534 /* PresentCardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE152338F7EE00EA5534 /* PresentCardAnimator.swift */; };
+		8F84EE1A2338F7EE00EA5534 /* DismissCardAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE162338F7EE00EA5534 /* DismissCardAnimator.swift */; };
+		8F84EE212338FC9B00EA5534 /* StatusBarAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE1F2338FC9B00EA5534 /* StatusBarAnimatable.swift */; };
+		8F84EE222338FC9B00EA5534 /* StatusBarAnimatableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE202338FC9B00EA5534 /* StatusBarAnimatableViewController.swift */; };
 		8F946A672321055500673302 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F946A662321055500673302 /* NewsViewController.swift */; };
 		8F946A692321056300673302 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F946A682321056300673302 /* News.swift */; };
 		8F946A6C2321057200673302 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F946A6B2321057200673302 /* NewsViewModel.swift */; };
@@ -91,7 +96,12 @@
 		8F84EDD3232FD97F00EA5534 /* HimerakiProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HimerakiProject.entitlements; sourceTree = "<group>"; };
 		8F84EDD5232FD98E00EA5534 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		8F84EE0E2337C69700EA5534 /* CachedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
-		8F84EE102338B14500EA5534 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
+		8F84EE132338F7EE00EA5534 /* CardTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTransition.swift; sourceTree = "<group>"; };
+		8F84EE142338F7EE00EA5534 /* CardPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
+		8F84EE152338F7EE00EA5534 /* PresentCardAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentCardAnimator.swift; sourceTree = "<group>"; };
+		8F84EE162338F7EE00EA5534 /* DismissCardAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissCardAnimator.swift; sourceTree = "<group>"; };
+		8F84EE1F2338FC9B00EA5534 /* StatusBarAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarAnimatable.swift; sourceTree = "<group>"; };
+		8F84EE202338FC9B00EA5534 /* StatusBarAnimatableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarAnimatableViewController.swift; sourceTree = "<group>"; };
 		8F946A662321055500673302 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		8F946A682321056300673302 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		8F946A6B2321057200673302 /* NewsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
@@ -158,6 +168,7 @@
 				2FCDBC9623191EFD00F2FB91 /* Controllers */,
 				2FCDBC9323191E3700F2FB91 /* Helpers */,
 				8F946A7C232105A600673302 /* TabBar */,
+				8F84EE122338F7EE00EA5534 /* Transition */,
 				2FCDBC922319117300F2FB91 /* images */,
 				2FCDBC752318026400F2FB91 /* Main.storyboard */,
 				2FCDBC7B2318026500F2FB91 /* Assets.xcassets */,
@@ -194,7 +205,6 @@
 				8F946A83232106A000673302 /* UIMakers.swift */,
 				2FCDBC9423191E5400F2FB91 /* Extensions.swift */,
 				2FCDBCA4231A77C000F2FB91 /* BaseCell.swift */,
-				8F84EE102338B14500EA5534 /* PopAnimator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -231,6 +241,19 @@
 				8F84EDD5232FD98E00EA5534 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F84EE122338F7EE00EA5534 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				8F84EE1F2338FC9B00EA5534 /* StatusBarAnimatable.swift */,
+				8F84EE202338FC9B00EA5534 /* StatusBarAnimatableViewController.swift */,
+				8F84EE132338F7EE00EA5534 /* CardTransition.swift */,
+				8F84EE142338F7EE00EA5534 /* CardPresentationController.swift */,
+				8F84EE152338F7EE00EA5534 /* PresentCardAnimator.swift */,
+				8F84EE162338F7EE00EA5534 /* DismissCardAnimator.swift */,
+			);
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		8F946A6A2321057200673302 /* ViewModel */ = {
@@ -360,10 +383,12 @@
 				8F946A782321058300673302 /* TipsAndTricksCell.swift in Sources */,
 				8F946A6C2321057200673302 /* NewsViewModel.swift in Sources */,
 				8F946A772321058300673302 /* FeaturedArtistView.swift in Sources */,
+				8F84EE222338FC9B00EA5534 /* StatusBarAnimatableViewController.swift in Sources */,
 				2F8C7F14231FB84200BE4746 /* GenerateHeader.swift in Sources */,
 				2FCDBCA32319794100F2FB91 /* FavoriteCells.swift in Sources */,
 				2F8C7F16231FFC9D00BE4746 /* GenerateView.swift in Sources */,
 				2FCDBC9923191F5700F2FB91 /* articleView.swift in Sources */,
+				8F84EE182338F7EE00EA5534 /* CardPresentationController.swift in Sources */,
 				2F8C7F0C231D138600BE4746 /* favoritesModel.swift in Sources */,
 				2F8C7F0E231D54C600BE4746 /* DetailCells.swift in Sources */,
 				2F8C7F10231F9D7E00BE4746 /* generateViewController.swift in Sources */,
@@ -374,10 +399,12 @@
 				2FCDBCA7231A90F600F2FB91 /* FavoritePopUpView.swift in Sources */,
 				8F946A86232106AD00673302 /* Constant.swift in Sources */,
 				8F946A762321058300673302 /* SupplyReviewCell.swift in Sources */,
+				8F84EE212338FC9B00EA5534 /* StatusBarAnimatable.swift in Sources */,
+				8F84EE192338F7EE00EA5534 /* PresentCardAnimator.swift in Sources */,
 				2FCDBC7A2318026400F2FB91 /* HimerakiProject.xcdatamodeld in Sources */,
+				8F84EE172338F7EE00EA5534 /* CardTransition.swift in Sources */,
 				8F84EE0F2337C69700EA5534 /* CachedImageView.swift in Sources */,
 				2FCDBC742318026400F2FB91 /* favoritesViewController.swift in Sources */,
-				8F84EE112338B14500EA5534 /* PopAnimator.swift in Sources */,
 				2FCDBC87231813D300F2FB91 /* fullArticleViewController.swift in Sources */,
 				2FCDBC722318026400F2FB91 /* AppDelegate.swift in Sources */,
 				8F946A752321058300673302 /* ArticleCell.swift in Sources */,
@@ -387,6 +414,7 @@
 				8F946A7B2321058300673302 /* BaseNewsCell.swift in Sources */,
 				8F946A672321055500673302 /* NewsViewController.swift in Sources */,
 				8F946A81232105A600673302 /* CustomTabBarController.swift in Sources */,
+				8F84EE1A2338F7EE00EA5534 /* DismissCardAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

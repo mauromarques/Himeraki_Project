@@ -11,7 +11,7 @@ import UIKit
 
 /// Parent class for cells with initializers.
 class BaseCell: UICollectionViewCell {
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
