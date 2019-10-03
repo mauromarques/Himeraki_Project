@@ -18,7 +18,7 @@ class generateHeader: BaseCell {
         let label = UILabel()
         label.backgroundColor = .clear
         label.text = "Generate"
-        label.font = UIFont(name: ".SFUIText-Bold", size: 34)
+        label.font = UIFont.systemFont(ofSize: 34, weight: UIFont.Weight.semibold)
         label.textColor = UIColor.white
         return label
     }()
@@ -27,7 +27,7 @@ class generateHeader: BaseCell {
         let label = UILabel()
         label.backgroundColor = .clear
         label.text = "Choose up to 4 categories to generate a random list of inspirations for your art"
-        label.font = UIFont(name: ".SFUIText-Medium", size: 14)
+        label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular)
         label.alpha = 0.8
         label.numberOfLines = 0
         label.textColor = UIColor.white

@@ -60,7 +60,7 @@ extension fullArticleViewController {
             
             let attributes: [NSAttributedString.Key : Any] = [
                 NSAttributedString.Key.foregroundColor : UIColor.init(red: 123, green: 43, blue: 74),
-                NSAttributedString.Key.font : UIFont(name: ".SFUIText", size: 15)!,
+                NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.light),
                 NSAttributedString.Key.paragraphStyle : paragraphStyle
             ]
             return attributes
@@ -98,7 +98,7 @@ extension fullArticleViewController {
         category.alpha = 0.8
         category.translatesAutoresizingMaskIntoConstraints = false
         category.backgroundColor = .clear
-        category.font = UIFont(name: ".SFUIText-Medium", size: 15)
+        category.font = UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.medium)
         category.text = "featured artist"
         category.text = category.text?.uppercased()
         category.textColor = .init(red: 151, green: 0, blue: 58)
@@ -111,7 +111,7 @@ extension fullArticleViewController {
         title.alpha = 0.8
         title.translatesAutoresizingMaskIntoConstraints = false
         title.backgroundColor = .clear
-        title.font = UIFont(name: ".SFUIText-Bold", size: 27)
+        title.font = UIFont.systemFont(ofSize: 27.0, weight: UIFont.Weight.bold)
         title.text = "Park Bom"
         title.textColor = .init(red: 255, green: 161, blue: 206)
         title.textAlignment = .left

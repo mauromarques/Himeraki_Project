@@ -27,7 +27,7 @@ class categoriesCheckBox: BaseCell {
         let label = UILabel()
         label.backgroundColor = .clear
         label.text = "Animal"
-        label.font = UIFont(name: ".SFUIText-Bold", size: 16)
+        label.font = UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.semibold)
         label.textColor = UIColor.white
         return label
     }()

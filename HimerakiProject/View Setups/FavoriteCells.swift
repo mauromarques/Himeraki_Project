@@ -18,7 +18,7 @@ class favoritesCell: BaseCell {
         let label = UILabel()
         label.backgroundColor = .clear
         label.text = "26/07/2019"
-        label.font = UIFont(name: ".SFUIText-Medium", size: 12)
+        label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.medium)
         label.textColor = UIColor.init(red: 210, green: 188, blue: 198)
         return label
     }()
@@ -28,7 +28,7 @@ class favoritesCell: BaseCell {
         label.backgroundColor = .clear
         label.text = ""
         label.text = label.text?.uppercased()
-        label.font = UIFont(name: ".SFUIText-Medium", size: 15)
+        label.font = UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.medium)
         label.textColor = UIColor.init(red: 255, green: 161, blue: 206)
         return label
     }()
@@ -37,7 +37,7 @@ class favoritesCell: BaseCell {
         let label = UILabel()
         label.backgroundColor = .clear
         label.text = ""
-        label.font = UIFont(name: ".SFUIText-Medium", size: 15)
+        label.font = UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.medium)
         label.textColor = UIColor.init(red: 234, green: 97, blue: 149)
         return label
     }()

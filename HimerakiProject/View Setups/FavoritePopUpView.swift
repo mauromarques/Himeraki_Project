@@ -64,7 +64,7 @@ extension favoritesViewController {
     func createDateLabel(card: UIView) {
         let dateLabel = UILabel()
         dateLabel.text=favoriteForDetails.date.asString(style: .full)
-        dateLabel.font = UIFont(name: ".SFUIText-Medium", size: 15)
+        dateLabel.font = UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.medium)
         dateLabel.textColor = UIColor.init(red: 210, green: 188, blue: 198)
         card.addSubview(dateLabel)
         dateLabel.anchor(top: card.topAnchor, leading: card.leadingAnchor, bottom: nil, trailing: card.trailingAnchor, padding: UIEdgeInsets(top: 17, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 18))
@@ -254,7 +254,7 @@ extension generateViewController {
         print ("tutua date \(dateString)")
         
         dateLabel.text = Date(dateString).asString(style: .full)
-        dateLabel.font = UIFont(name: ".SFUIText-Medium", size: 15)
+        dateLabel.font = UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.medium)
         dateLabel.textColor = UIColor.init(red: 210, green: 188, blue: 198)
         card.addSubview(dateLabel)
         dateLabel.anchor(top: card.topAnchor, leading: card.leadingAnchor, bottom: nil, trailing: card.trailingAnchor, padding: UIEdgeInsets(top: 17, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 18))

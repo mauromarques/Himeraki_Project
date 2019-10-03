@@ -20,9 +20,9 @@ class BaseNewsCell: UICollectionViewCell {
         return iv
     }()
     
-    let headerTitle = UILabel(text: "Header Title", font: UIFont(name: .medium, size: 15)!, numberOfLines: 1, color: .black)
-    let mainTitle = UILabel(text: "Main Title", font: UIFont(name: .bold, size: 27)!, numberOfLines: 1, color: .black)
-    let subTitle = UILabel(text: "Subtitle Title Subtitle Title Subtitle Title Subtitle Title Subtitle Title Subtitle Title", font: UIFont(name: .medium, size: 15)!, numberOfLines: 0, color: .black)
+    let headerTitle = UILabel(text: "Header Title", font: UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.medium), numberOfLines: 1, color: .black)
+    let mainTitle = UILabel(text: "Main Title", font: UIFont.systemFont(ofSize: 27, weight: UIFont.Weight.bold), numberOfLines: 1, color: .black)
+    let subTitle = UILabel(text: "Subtitle Title Subtitle Title Subtitle Title Subtitle Title Subtitle Title Subtitle Title", font: UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.medium), numberOfLines: 0, color: .black)
     
     var disabledHighlightedAnimation = false
     

@@ -19,7 +19,7 @@ class DetailCells: BaseCell {
         label.backgroundColor = .clear
         label.text = "Animal"
         label.text = label.text?.uppercased()
-        label.font = UIFont(name: ".SFUIText-Medium", size: 15)
+        label.font = UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.medium)
         label.textColor = UIColor.init(red: 255, green: 161, blue: 206)
         return label
     }()
@@ -28,7 +28,7 @@ class DetailCells: BaseCell {
         let label = UILabel()
         label.backgroundColor = .clear
         label.text = "Giraffe"
-        label.font = UIFont(name: ".SFUIText-Medium", size: 15)
+        label.font = UIFont.systemFont(ofSize: 15.0, weight: UIFont.Weight.medium)
         label.textColor = UIColor.init(red: 234, green: 97, blue: 149)
         return label
     }()
