@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDelegateFlowLayout {
 
+    let adView = GADBannerView()
+    
     let viewModel = NewsViewModel()
     
     let refreshControl = UIRefreshControl()
@@ -40,7 +43,7 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
         collectionView.register(ArticleCell.self, forCellWithReuseIdentifier: ArticleCell.identifier)
         collectionView.register(TipsAndTricksCell.self, forCellWithReuseIdentifier: TipsAndTricksCell.identifier)
         
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 30, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         
         self.viewModel.onError = { error in
@@ -60,6 +63,23 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
         refreshControl.addTarget(self.viewModel, action: #selector(NewsViewModel.refresh), for: .valueChanged)
         
         self.viewModel.refresh()
+        
+        setupAd()
+    }
+    
+    func setupAd(){
+        
+        view.addSubview(adView)
+        
+        adView.backgroundColor = .clear
+        adView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, size: CGSize(width: 0, height: 50))
+        adView.translatesAutoresizingMaskIntoConstraints = false
+        adView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive=true
+        
+        adView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        adView.rootViewController = self
+        adView.load(GADRequest())
+        adView.delegate = self
         
     }
     
@@ -215,3 +235,13 @@ enum CellIdentifierMode {
     case cellHeight
 }
 
+extension NewsViewController: GADBannerViewDelegate {
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("ad received")
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print(error)
+    }
+}

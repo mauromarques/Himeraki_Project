@@ -5,9 +5,13 @@
 //  Created by Mauro Marques on 29/08/2019.
 //  Copyright © 2019 Mauro Marques. All rights reserved.
 //
+// app id: ca-app-pub-3664459705745471~4658810445
+// ad unit newsHome id: ca-app-pub-3664459705745471/2579442019
+
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
 
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
         print(favorites)
         
         return true
