@@ -24,12 +24,14 @@ class CustomTabController: UITabBarController {
         tabBar.backgroundImage = UIImage()
         tabBar.layer.masksToBounds = false
         tabBar.isTranslucent = true
+        tabBar.layer.borderWidth = 0
+        tabBar.barStyle = .black
         
         view.bringSubviewToFront(tabBar)
         setupView()
         
         viewControllers = [
-            createNavController(viewController: NewsViewController(), title: "Home", imageName: "home", offset: -25),
+            createNavController(viewController: NewsViewController(), title: "News", imageName: "home", offset: -25),
             createNavController(viewController: favoritesViewController(collectionViewLayout: layout), title: "Favorites", imageName: "favorite", offset: 25)
         ]
     }
@@ -71,7 +73,7 @@ class CustomTabController: UITabBarController {
         navController.navigationBar.backgroundColor = .white
         navController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 123, green: 43, blue: 74)]
         navController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 123, green: 43, blue: 74)]
-        navController.navigationBar.layer.applySketchShadow(color: .black, alpha: 0.2, x: 0, y: -1, blur: 10, spread: 0)
+//        navController.navigationBar.layer.applySketchShadow(color: .black, alpha: 0.2, x: 0, y: -1, blur: 10, spread: 0)
         navController.navigationBar.shadowImage = UIImage()
         navController.navigationBar.barTintColor = .white
         
@@ -87,6 +89,7 @@ class CustomTabController: UITabBarController {
     
     @objc func presentVC() {
         let vc = generateViewController(collectionViewLayout: layout)
+        vc.modalPresentationStyle = .fullScreen
         vc.tabSelectDelegate = self
         self.present(vc, animated: true, completion: nil)
     }

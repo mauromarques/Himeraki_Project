@@ -24,7 +24,7 @@ class CurvedView: UIView {
         
         createPathCircle()
         
-        self.layer.applySketchShadow(color: .black, alpha: 0.2, x: 0, y: -1, blur: 11, spread: 0)
+        self.layer.applySketchShadow(color: .black, alpha: 0.5, x: 0, y: -1, blur: 11, spread: 0)
         
     }
     
