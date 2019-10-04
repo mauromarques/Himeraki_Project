@@ -72,7 +72,7 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
         view.addSubview(adView)
         
         adView.backgroundColor = .clear
-        adView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, size: CGSize(width: 0, height: 50))
+        adView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: nil, size: CGSize(width: 320, height: 50))
         adView.translatesAutoresizingMaskIntoConstraints = false
         adView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive=true
         
