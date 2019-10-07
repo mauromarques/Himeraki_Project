@@ -181,7 +181,7 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         if collectionView == popUpCollectionView{
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
-        return UIEdgeInsets(top: 30, left: 20, bottom: 30, right: 20)
+        return UIEdgeInsets(top: 55, left: 20, bottom: 30, right: 20)
     }
     
 }
@@ -190,6 +190,7 @@ extension favoritesViewController: GADBannerViewDelegate {
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         print("ad received")
+     
     }
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {

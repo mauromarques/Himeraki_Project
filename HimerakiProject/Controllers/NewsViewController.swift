@@ -43,7 +43,7 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
         collectionView.register(ArticleCell.self, forCellWithReuseIdentifier: ArticleCell.identifier)
         collectionView.register(TipsAndTricksCell.self, forCellWithReuseIdentifier: TipsAndTricksCell.identifier)
         
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 30, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 25, left: 0, bottom: 60, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         
         self.viewModel.onError = { error in
