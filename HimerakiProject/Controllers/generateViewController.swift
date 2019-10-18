@@ -21,7 +21,6 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
     var confirmButton = UIButton()
     var closeButton = UIButton()
     var gradientLayer: CAGradientLayer!
-    var categories = ["Character", "Animal", "Colors", "Actions", "Clothes", "Flowers", "Weapons", "Scenarios"]
     
     let popUpCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -29,6 +28,7 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
     let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.regular)
     let blurEffectView = UIVisualEffectView()
     var centerYConstraint = NSLayoutConstraint()
+    var premiumYConstraint = NSLayoutConstraint()
     var popUpCollectionHeight = 18
     
     var isSelected = Bool()
@@ -82,15 +82,18 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
         categoriesToGenerate.removeAll()
         arrayOfCategories.removeAll()
         print("confirm button pressed")
-        let selectedCellsIndex = collectionView.indexPathsForSelectedItems?.count
-        let selectedCellsIndex2 = collectionView.indexPathsForSelectedItems!
-        print("number of selected indexes \(String(describing: selectedCellsIndex))")
+        let selectedCellsIndex = collectionView.indexPathsForSelectedItems!
+        print("number of selected indexes \(String(describing: selectedCellsIndex.count)), the selected things \(selectedCellsIndex)")
 
-        for categorySelected in selectedCellsIndex2 {
-            let cell = collectionView.cellForItem(at: categorySelected) as! categoriesCheckBox
-            let category = cell.categoryLabel.text
+        for categorySelected in selectedCellsIndex {
+
+            let iWannaBe = categoriesToGetPrompt[categorySelected[1]].name
+            
+            
+//            let cell = collectionView.cellForItem(at: categorySelected) as! categoriesCheckBox
+//            let category = cell.categoryLabel.text
             for categoryModel in categoriesToGetPrompt {
-                if categoryModel.name == category {
+                if categoryModel.name == iWannaBe {
                     categoriesToGenerate.append(categoryModel)
                 }
             }
@@ -168,6 +171,11 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
         let myCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCell", for: indexPath as IndexPath) as! categoriesCheckBox
         myCell.backgroundColor = .clear
         myCell.categoryLabel.text = categoriesToGetPrompt[indexPath.row].name
+        if myCell.isSelected {
+            myCell.checkBoxView.backgroundColor = .white
+        } else {
+        myCell.checkBoxView.backgroundColor = .clear
+        }
         return myCell
     }
     
@@ -186,7 +194,7 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
             
         } else {
             
-            if numberOfSelections >= 4 {
+            if numberOfSelections >= 6 {
                 collectionView.deselectItem(at: indexPath, animated: true)
                 print("cell was deselected")
                 print("cucu4")
@@ -198,6 +206,7 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
 
                 if cell.isSelected == true {
                     cell.checkBoxView.backgroundColor = .white
+                    cell.isSelected = true
                     confirmButton.isEnabled = true
                     print("cucu2")
 
@@ -229,6 +238,13 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if collectionView == popUpCollectionView{
+            return 1
+        }
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

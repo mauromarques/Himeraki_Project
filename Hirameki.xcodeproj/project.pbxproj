@@ -36,6 +36,7 @@
 		2FCDBCA32319794100F2FB91 /* FavoriteCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA22319794100F2FB91 /* FavoriteCells.swift */; };
 		2FCDBCA5231A77C000F2FB91 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA4231A77C000F2FB91 /* BaseCell.swift */; };
 		2FCDBCA7231A90F600F2FB91 /* FavoritePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDBCA6231A90F600F2FB91 /* FavoritePopUpView.swift */; };
+		6792FEAC234C967F0093FA84 /* shop.png in Resources */ = {isa = PBXBuildFile; fileRef = 6792FEAB234C967F0093FA84 /* shop.png */; };
 		8F84EDD6232FD98E00EA5534 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F84EDD5232FD98E00EA5534 /* CloudKit.framework */; };
 		8F84EE0F2337C69700EA5534 /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE0E2337C69700EA5534 /* CachedImageView.swift */; };
 		8F84EE172338F7EE00EA5534 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE132338F7EE00EA5534 /* CardTransition.swift */; };
@@ -95,6 +96,7 @@
 		2FCDBCA4231A77C000F2FB91 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		2FCDBCA6231A90F600F2FB91 /* FavoritePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePopUpView.swift; sourceTree = "<group>"; };
 		54671D3019F805FAA3AEFB23 /* Pods-HimerakiProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HimerakiProject.debug.xcconfig"; path = "Target Support Files/Pods-HimerakiProject/Pods-HimerakiProject.debug.xcconfig"; sourceTree = "<group>"; };
+		6792FEAB234C967F0093FA84 /* shop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop.png; sourceTree = "<group>"; };
 		8F84EDD3232FD97F00EA5534 /* HimerakiProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HimerakiProject.entitlements; sourceTree = "<group>"; };
 		8F84EDD5232FD98E00EA5534 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		8F84EE0E2337C69700EA5534 /* CachedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		2FCDBC922319117300F2FB91 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6792FEAB234C967F0093FA84 /* shop.png */,
 				2F8C7F1D23264F6D00BE4746 /* nothing.png */,
 				2FC4EE812327E3A90084C25E /* confirmDisabled.png */,
 				2FC4EE8D2327E89B0084C25E /* trashForPopUp.png */,
@@ -372,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6792FEAC234C967F0093FA84 /* shop.png in Resources */,
 				2FC4EE8E2327E89B0084C25E /* trashForPopUp.png in Resources */,
 				2FC4EE8A2327E60E0084C25E /* x.png in Resources */,
 				2FC4EE862327E53F0084C25E /* heart.png in Resources */,

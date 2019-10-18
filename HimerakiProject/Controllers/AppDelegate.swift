@@ -6,7 +6,9 @@
 //  Copyright © 2019 Mauro Marques. All rights reserved.
 //
 // app id: ca-app-pub-3664459705745471~4658810445
+// app id: ca-app-pub-3664459705745471~4658810445
 // ad unit newsHome id: ca-app-pub-3664459705745471/2579442019
+// ad unit favorites: ca-app-pub-3664459705745471/5335830810
 
 
 import UIKit
