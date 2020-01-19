@@ -10,6 +10,7 @@ import UIKit
 
 class ArticleCell: BaseNewsCell {
         
+    
     static var identifier: String {
         return String(describing: self)
     }
