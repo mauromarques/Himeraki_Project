@@ -11,6 +11,17 @@ import UIKit
 
 let myNotificationKey = "mykey"
 
+
+extension UIImageView {
+    func applyBlur() {
+        let blurEffect = UIBlurEffect(style: .extraLight)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0.3
+        self.addSubview(blurEffectView)
+        blurEffectView.fillSuperview()
+    }
+}
+
 extension UIViewController {
     
     //MARK: Show Alert Message Without Actions

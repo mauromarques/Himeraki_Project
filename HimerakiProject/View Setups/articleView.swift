@@ -71,14 +71,12 @@ extension fullArticleViewController {
         let size = CGSize(width: view.frame.width - 60, height: .infinity)
         
         estimatedSize = text.sizeThatFits(size)
-        print("the label height is: \(estimatedSize.height)")
-        
-        //        text.hyperLink(originalText: "To find out more please visit our website", hyperLink: "website", urlString: linkUrl)
         
         return text
     }
     
-    func createLinkTextView(artist: String, profileLink: String) -> UITextView {
+    func createLinkTextView(artist: String?, profileLink: String) -> UITextView {
+        
         let link = UITextView()
         link.backgroundColor = .clear
         link.translatesAutoresizingMaskIntoConstraints = false
@@ -87,8 +85,13 @@ extension fullArticleViewController {
         link.isScrollEnabled = false
         link.isSelectable = true
         
-        linkUrl = profileLink
-        link.hyperLink(originalText: "Follow \(artist) on Instagram", hyperLink: "Instagram", urlString: linkUrl)
+        
+        if artist == nil || artist == "" {
+            link.text = ""
+        } else {
+            linkUrl = profileLink
+            link.hyperLink(originalText: "Follow \(artist ?? "artist") on Instagram", hyperLink: "Instagram", urlString: linkUrl)
+        }
         
         return link
     }

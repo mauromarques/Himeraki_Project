@@ -36,7 +36,7 @@ class ChallengeCell: BaseNewsCell {
         
         //All views are added, they need constraints.
         imageView.fillSuperview()
-//        imageView.image = addBlurTo(#imageLiteral(resourceName: "backgroundImage"))
+        imageView.applyBlur()
         
         headerTitle.text = "CHALLENGE"
         headerTitle.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: nil, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 18))
@@ -57,20 +57,5 @@ class ChallengeCell: BaseNewsCell {
         pinkGradient.opacity = 0.7
         imageView.addGradient(with: pinkGradient, gradientFrame: imageView.bounds, colorSet: [topPink, bottomPink], locations: [0, 1])
     }
-    
-    func addBlurTo(_ image: UIImage) -> UIImage? {
-        
-        guard let ciImg = CIImage(image: image) else { return nil }
-        
-        let blur = CIFilter(name: "CIGaussianBlur")
-        
-        blur?.setValue(ciImg, forKey: kCIInputImageKey)
-        blur?.setValue(0.4, forKey: kCIInputRadiusKey)
-        
-        if let outputImg = blur?.outputImage {
-            return UIImage(ciImage: outputImg)
-        }
-        
-        return nil
-    }
+
 }

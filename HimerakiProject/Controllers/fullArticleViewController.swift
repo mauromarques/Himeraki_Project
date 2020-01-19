@@ -71,7 +71,7 @@ class fullArticleViewController: StatusBarAnimatableViewController, UITextViewDe
         
         weirdTriangle = createWeirdTriangle()
         closeButton = createCloseButton()
-        linkTextView = createLinkTextView(artist: new.artistName ?? "Artist", profileLink: new.instaLink ?? "")
+        linkTextView = createLinkTextView(artist: new.artistName, profileLink: new.instaLink ?? "")
         whiteGradientImageView = createWhiteGradient()
         shadowContainer = createShadowContainer()
         textView = createTextView(textReceived: new.articleText ?? "Teste")
