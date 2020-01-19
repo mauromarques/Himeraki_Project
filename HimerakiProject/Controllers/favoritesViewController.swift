@@ -6,11 +6,14 @@
 //  Copyright © 2019 Mauro Marques. All rights reserved.
 //
 import UIKit
+import GoogleMobileAds
 
 var favorites = [Favorite]()
 
 class favoritesViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+     let adView = GADBannerView()
+     
      var favoriteForDetails = Favorite(date: Date("2025-9-30")
           , categories: [Category.init(name: "Animal", prompt: "Monkey"), Category.init(name: "Color", prompt: "Blue & Red")])
     let popUpCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -54,7 +57,26 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         popUpCollectionView.register(DetailCells.self, forCellWithReuseIdentifier: "MyCell")
         collectionView.backgroundColor = UIColor.white
         setImage()
+     
+     setupAd()
     }
+     
+     func setupAd(){
+         
+         view.addSubview(adView)
+         
+         adView.backgroundColor = .clear
+         adView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: nil, size: CGSize(width: 320, height: 50))
+         adView.translatesAutoresizingMaskIntoConstraints = false
+         adView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive=true
+         
+         adView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+         adView.rootViewController = self
+         adView.load(GADRequest())
+         adView.delegate = self
+         
+     }
+     
      func setImage(){
           view.addSubview(nothingToSee)
           nothingToSee.translatesAutoresizingMaskIntoConstraints = false
@@ -159,7 +181,19 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         if collectionView == popUpCollectionView{
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
-        return UIEdgeInsets(top: 30, left: 20, bottom: 30, right: 20)
+        return UIEdgeInsets(top: 55, left: 20, bottom: 50, right: 20)
     }
     
+}
+
+extension favoritesViewController: GADBannerViewDelegate {
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("ad received")
+     
+    }
+    
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print(error)
+    }
 }

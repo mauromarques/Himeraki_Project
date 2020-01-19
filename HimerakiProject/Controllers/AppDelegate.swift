@@ -5,9 +5,15 @@
 //  Created by Mauro Marques on 29/08/2019.
 //  Copyright © 2019 Mauro Marques. All rights reserved.
 //
+// app id: ca-app-pub-3664459705745471~4658810445
+// app id: ca-app-pub-3664459705745471~4658810445
+// ad unit newsHome id: ca-app-pub-3664459705745471/2579442019
+// ad unit favorites: ca-app-pub-3664459705745471/5335830810
+
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let placeData = UserDefaults.standard.data(forKey: "favorites")
             favorites = try! JSONDecoder().decode([Favorite].self, from: placeData!)
         }
+
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+        print(favorites)
         
         return true
     }

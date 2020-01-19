@@ -11,6 +11,8 @@ import UIKit
 
 extension favoritesViewController {
     
+    
+    
     func createBlurView() {
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -206,6 +208,7 @@ extension generateViewController {
             print("cuca after animate blur \(self.popUpCollectionView.contentSize.height)")
             self.popUpCollectionHeight = Int(self.popUpCollectionView.contentSize.height)
             self.createDetailsContainer(view: self.blurEffectView)
+            self.createPremiumCard(view: self.blurEffectView)
             self.blurEffectView.layoutIfNeeded()
             UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.centerYConstraint.constant = 0
@@ -307,10 +310,20 @@ extension generateViewController {
         
     }
     @objc func deleteAtIndex(sender: UIButton!) {
+        if favorites.count >= 10 {
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.premiumYConstraint.constant=0
+                self.blurEffectView.layoutIfNeeded()
+            })
+            
+        }else{
+            
         UIView.animate(withDuration: 0.3, animations: {
             self.centerYConstraint.constant = (self.view.frame.height/2)+(267/2)
             self.blurEffectView.layoutIfNeeded()
         }) { (true) in
+            
             let date = Date()
             let calendar = Calendar.current
             let components = calendar.dateComponents([.year, .month, .day], from: date)
@@ -339,6 +352,7 @@ extension generateViewController {
             }, completion: { (true) in
                 
             })
+            }
         }
     }
     
@@ -356,6 +370,121 @@ extension generateViewController {
         
     }
     
+    func createPremiumCard(view:UIVisualEffectView){
+        let card = UIView()
+        card.backgroundColor = .white
+        card.layer.cornerRadius = 15
+        card.layer.applySketchShadow(color: .black, alpha: 0.3, x: 0, y: 2, blur: 11, spread: 0)
+        view.contentView.addSubview(card)
+        card.translatesAutoresizingMaskIntoConstraints = false
+        card.anchor(top: nil, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 346))
+        premiumYConstraint = card.centerYAnchor.constraint(equalToSystemSpacingBelow: view.centerYAnchor, multiplier: 0)
+        premiumYConstraint.constant = view.frame.height/2 + 173
+        premiumYConstraint.isActive = true
+        
+        createGoPremiumLabel(card: card)
+    }
+    
+    func createGoPremiumLabel(card: UIView){
+        
+        let goPremium = UILabel()
+        goPremium.text="Go premium!"
+        goPremium.font = UIFont.systemFont(ofSize: 40, weight: UIFont.Weight.bold)
+        goPremium.textColor = UIColor.init(red: 255, green: 34, blue: 119)
+        card.addSubview(goPremium)
+        goPremium.translatesAutoresizingMaskIntoConstraints=false
+        goPremium.anchor(top: card.topAnchor, leading: card.leadingAnchor, bottom: nil, trailing: card.trailingAnchor, padding: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 48))
+        
+        createReasonLabel(card: card, premium: goPremium)
+    }
+    
+    func createReasonLabel(card: UIView, premium: UILabel){
+        
+        let label = UILabel()
+        label.text="It seems like you’ve reached the maximum number of favorites."
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.medium)
+        label.textColor = UIColor.init(red: 255, green: 161, blue: 206)
+        card.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints=false
+        label.anchor(top: premium.bottomAnchor, leading: card.leadingAnchor, bottom: nil, trailing: card.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 40))
+        
+        createFeaturesLabel(card: card, previous: label)
+    }
+    
+    func createFeaturesLabel(card: UIView, previous: UILabel){
+        
+        let label = UILabel()
+        label.text="The premium version includes:"
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.bold)
+        label.textColor = UIColor.init(red: 255, green: 34, blue: 119)
+        card.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints=false
+        label.anchor(top: previous.bottomAnchor, leading: card.leadingAnchor, bottom: nil, trailing: card.trailingAnchor, padding: UIEdgeInsets(top: 15, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 14))
+        
+        createListLabel(card: card, previous: label)
+    }
+    
+    func createListLabel(card: UIView, previous: UILabel){
+        
+        let label = UILabel()
+        label.text="- No ads!\n- Cloud saving!\n- Unlimited storage for favorites.\n- Extra options for ideas generation.\n- Early access to future features."
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.medium)
+        label.textColor = UIColor.init(red: 255, green: 161, blue: 206)
+        card.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints=false
+        label.anchor(top: previous.bottomAnchor, leading: card.leadingAnchor, bottom: nil, trailing: card.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20), size: CGSize(width: 0, height: 100))
+        
+        createCloseButton2(card: card)
+        createShopButton(card: card, previous: label)
+    }
+    
+    func createCloseButton2(card: UIView) {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 32, height: 32))
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.layer.applySketchShadow(color: .black, alpha: 0.3, x: 0, y: 2, blur: 4, spread: 0)
+        button.clipsToBounds = false
+        button.backgroundColor = .white
+        button.setImage(UIImage(named:"x"), for: .normal)
+        button.contentMode = .center
+        button.addTarget(self, action: #selector(closeButtonPressed2), for: .touchUpInside)
+        
+        card.addSubview(button)
+        button.anchor(top: card.topAnchor, leading: nil, bottom: nil, trailing: card.trailingAnchor, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 10), size: CGSize(width: 32, height: 32))
+    }
+    
+    @objc func closeButtonPressed2() {
+        print("champion na shicker gilio")
+        UIView.animate(withDuration: 0.3) {
+            self.premiumYConstraint.constant = self.view.frame.height/2 + 173
+            self.blurEffectView.layoutIfNeeded()
+        }
+    }
+    
+    func createShopButton(card: UIView, previous: UILabel) {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 15
+        button.backgroundColor = .init(red: 234, green: 97, blue: 149)
+        button.setImage(UIImage(named:"shop"), for: .normal)
+        button.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(buyButtonPressed), for: .touchUpInside)
+        
+        card.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.anchor(top: previous.bottomAnchor, leading: nil, bottom: card.bottomAnchor, trailing: nil, padding: UIEdgeInsets(top: 30, left: 80, bottom: 20, right: 80), size: CGSize(width: 182, height: 54))
+        button.centerXAnchor.constraint(equalTo: card.centerXAnchor).isActive=true
+    }
+//https://apps.apple.com/tt/app/apollo-explorer/id1465876840
+    @objc func buyButtonPressed() {
+        print("champion na shicker girilo origio")
+       guard let url = URL(string: "https://www.facebook.com") else { return }
+       UIApplication.shared.open(url)
+    }
 }
 
 

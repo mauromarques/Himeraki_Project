@@ -1,0 +1,6 @@
+framework module Pods_HimerakiProject {
+  umbrella header "Pods-HimerakiProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
