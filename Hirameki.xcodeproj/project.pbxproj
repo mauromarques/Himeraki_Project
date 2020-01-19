@@ -59,6 +59,7 @@
 		8F946A82232105A600673302 /* GradientBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F946A7F232105A600673302 /* GradientBtn.swift */; };
 		8F946A84232106A100673302 /* UIMakers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F946A83232106A000673302 /* UIMakers.swift */; };
 		8F946A86232106AD00673302 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F946A85232106AD00673302 /* Constant.swift */; };
+		8FFBE7ED23D4A861006C70AD /* SecretController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFBE7EC23D4A861006C70AD /* SecretController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		8F946A7F232105A600673302 /* GradientBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientBtn.swift; sourceTree = "<group>"; };
 		8F946A83232106A000673302 /* UIMakers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIMakers.swift; sourceTree = "<group>"; };
 		8F946A85232106AD00673302 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		8FFBE7EC23D4A861006C70AD /* SecretController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				2FCDBC732318026400F2FB91 /* favoritesViewController.swift */,
 				2FCDBC86231813D300F2FB91 /* fullArticleViewController.swift */,
 				8F946A662321055500673302 /* NewsViewController.swift */,
+				8FFBE7EC23D4A861006C70AD /* SecretController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				2FCDBCA7231A90F600F2FB91 /* FavoritePopUpView.swift in Sources */,
 				8F946A86232106AD00673302 /* Constant.swift in Sources */,
 				8F946A762321058300673302 /* SupplyReviewCell.swift in Sources */,
+				8FFBE7ED23D4A861006C70AD /* SecretController.swift in Sources */,
 				8F84EE212338FC9B00EA5534 /* StatusBarAnimatable.swift in Sources */,
 				8F84EE192338F7EE00EA5534 /* PresentCardAnimator.swift in Sources */,
 				2FCDBC7A2318026400F2FB91 /* HimerakiProject.xcdatamodeld in Sources */,

@@ -21,6 +21,7 @@ struct News {
     fileprivate static let instaLink = "instaLink"
     fileprivate static let order = "id"
     fileprivate static let articleText = "articleText"
+    fileprivate static let artistName = "artistName"
     
     var record: CKRecord
     
@@ -36,7 +37,10 @@ struct News {
     
     var order: Int {
         get {
-            return self.record.value(forKey: News.order) as! Int
+            return self.record.value(forKey: News.order) as? Int ?? 0
+        }
+        set {
+            self.record.setValue(newValue, forKey: News.order)
         }
     }
     
@@ -44,11 +48,17 @@ struct News {
         get {
             return self.record.value(forKey: News.type) as? String
         }
+        set {
+            self.record.setValue(newValue, forKey: News.type)
+        }
     }
     
     var topTitle: String? {
         get {
             return self.record.value(forKey: News.topTitle) as? String
+        }
+        set {
+            self.record.setValue(newValue, forKey: News.topTitle)
         }
     }
     
@@ -56,11 +66,17 @@ struct News {
         get {
             return self.record.value(forKey: News.pictureUrl) as? String
         }
+        set {
+            self.record.setValue(newValue, forKey: News.pictureUrl)
+        }
     }
     
     var title: String? {
         get {
             return self.record.value(forKey: News.title) as? String
+        }
+        set {
+            self.record.setValue(newValue, forKey: News.title)
         }
     }
     
@@ -68,17 +84,35 @@ struct News {
         get {
             return self.record.value(forKey: News.subtitle) as? String
         }
+        set {
+            self.record.setValue(newValue, forKey: News.subtitle)
+        }
     }
     
     var instaLink: String? {
         get {
             return self.record.value(forKey: News.instaLink) as? String
         }
+        set {
+            self.record.setValue(newValue, forKey: News.instaLink)
+        }
+    }
+    
+    var artistName: String? {
+        get {
+            return self.record.value(forKey: News.artistName) as? String
+        }
+        set {
+            self.record.setValue(newValue, forKey: News.artistName)
+        }
     }
     
     var articleText: String? {
         get {
             return self.record.value(forKey: News.articleText) as? String
+        }
+        set {
+            self.record.setValue(newValue, forKey: News.articleText)
         }
     }
     

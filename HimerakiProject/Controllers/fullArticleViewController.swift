@@ -71,7 +71,7 @@ class fullArticleViewController: StatusBarAnimatableViewController, UITextViewDe
         
         weirdTriangle = createWeirdTriangle()
         closeButton = createCloseButton()
-        linkTextView = createLinkTextView()
+        linkTextView = createLinkTextView(artist: new.artistName ?? "Artist", profileLink: new.instaLink ?? "")
         whiteGradientImageView = createWhiteGradient()
         shadowContainer = createShadowContainer()
         textView = createTextView(textReceived: new.articleText ?? "Teste")
@@ -254,21 +254,7 @@ extension fullArticleViewController {
 }
 
 extension fullArticleViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if scrollView.contentOffset.y < 0.0 {
-//            headerHeightConstraint?.constant = Constants.headerHeight - scrollView.contentOffset.y
-//        } else {
-//            let parallaxFactor: CGFloat = 0.25
-//            let offsetY = scrollView.contentOffset.y * parallaxFactor
-//            let minOffsetY: CGFloat = 8.0
-//            let availableOffset = min(offsetY, minOffsetY)
-//            let contentRectOffsetY = availableOffset / Constants.headerHeight
-//            headerTopConstraint?.constant = view.frame.origin.y
-//            headerHeightConstraint?.constant = Constants.headerHeight - scrollView.contentOffset.y
-//            headerImageView.layer.contentsRect = CGRect(x: 0, y: -contentRectOffsetY, width: 1, height: 1)
-//        }
-//    }
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if draggingDownToDismiss || (scrollView.isTracking && scrollView.contentOffset.y < 0) {
             draggingDownToDismiss = true

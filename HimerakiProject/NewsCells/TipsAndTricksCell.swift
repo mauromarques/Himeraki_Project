@@ -44,7 +44,7 @@ class TipsAndTricksCell: BaseNewsCell {
         mainTitle.anchor(top: nil, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 20, bottom: 48, right: 20), size: CGSize(width: 0, height: 33))
         
         subTitle.anchor(top: nil, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20), size: CGSize(width: 0, height: 22))
-        subTitle.numberOfLines = 1
+        subTitle.numberOfLines = 0
     }
     
     override func layoutSublayers(of layer: CALayer) {

@@ -6,7 +6,6 @@
 //  Copyright © 2019 Vinicius Leal. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 /// Parent class for cells with initializers.

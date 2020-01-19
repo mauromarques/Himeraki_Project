@@ -6,12 +6,12 @@
 //  Copyright © 2019 Vinicius Leal. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class CustomTabController: UITabBarController {
-    
-    let layout = UICollectionViewFlowLayout()
+        
+    let secretPassword = "GalinhazinhaMagrinha"
+    var tapCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +32,57 @@ class CustomTabController: UITabBarController {
         
         viewControllers = [
             createNavController(viewController: NewsViewController(), title: "News", imageName: "home", offset: -25),
-            createNavController(viewController: favoritesViewController(collectionViewLayout: layout), title: "Favorites", imageName: "favorite", offset: 25)
+            createNavController(viewController: favoritesViewController(collectionViewLayout: UICollectionViewFlowLayout()), title: "Favorites", imageName: "favorite", offset: 25)
         ]
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        switch item {
+        case tabBar.items![0]:
+            tapCount += 1
+        case tabBar.items![1]:
+            tapCount = 0
+        default:
+            break
+        }
+        
+        if tapCount == 15 {
+            tapCount = 0
+            askForPassword()
+        }
+    
+    }
+    
+    func askForPassword() {
+        
+        var inputTextField: UITextField?
+        
+        //Create the AlertController
+        let passwordAlert = UIAlertController(title: "Yaay, it's not a secret anymore 🤭", message: "You unlocked the secret screen of Hirameki 😮, enter password to continue", preferredStyle: .alert)
+        
+        //Create and add the Cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        passwordAlert.addAction(cancelAction)
+        
+        //Create and an option action
+        let doneAction = UIAlertAction(title: "Done", style: .default) { action -> Void in
+            if inputTextField!.text == self.secretPassword {
+                UserDefaults.standard.set(true, forKey: "isAuthor")
+                self.dismiss(animated: true, completion: { self.showAlert(title: "Well done!", message: "Restart the app to see the secret button", dismissButtonTitle: "Ok") })
+            } else {
+                self.dismiss(animated: true, completion: { self.showAlert(title: "Oops🥴", message: "Wrong password", dismissButtonTitle: "Ok")})
+            }
+        }
+        passwordAlert.addAction(doneAction)
+        
+        passwordAlert.addTextField { textField -> Void in
+            inputTextField = textField
+            inputTextField?.placeholder = "Password"
+            inputTextField?.isSecureTextEntry = true
+        }
+        
+        self.present(passwordAlert, animated: true, completion: nil)
     }
     
     func setupView() {
@@ -73,7 +122,7 @@ class CustomTabController: UITabBarController {
         navController.navigationBar.backgroundColor = .white
         navController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 123, green: 43, blue: 74)]
         navController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 123, green: 43, blue: 74)]
-//        navController.navigationBar.layer.applySketchShadow(color: .black, alpha: 0.2, x: 0, y: -1, blur: 10, spread: 0)
+
         navController.navigationBar.shadowImage = UIImage()
         navController.navigationBar.barTintColor = .white
         
@@ -88,7 +137,7 @@ class CustomTabController: UITabBarController {
     }
     
     @objc func presentVC() {
-        let vc = generateViewController(collectionViewLayout: layout)
+        let vc = generateViewController(collectionViewLayout: UICollectionViewFlowLayout())
         vc.modalPresentationStyle = .fullScreen
         vc.tabSelectDelegate = self
         self.present(vc, animated: true, completion: nil)

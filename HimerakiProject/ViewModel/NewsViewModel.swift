@@ -6,7 +6,6 @@
 //  Copyright © 2019 Vinicius Leal. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CloudKit
 
@@ -30,7 +29,7 @@ protocol NewsViewModelItem {
 }
 
 class NewsViewModel: NSObject {
-    
+
     var items = [NewsViewModelItem]()
     
     var news = [News]()  {
@@ -58,9 +57,24 @@ class NewsViewModel: NSObject {
         
     }
     
-    func delete(at index : Int) {
+    func addNews(addedNew: News) {
+
+        database.save(addedNew.record) { _, error in
+            guard error == nil else {
+                self.handle(error: error!)
+                return
+            }
+        }
+
+        self.insertedObjects.append(addedNew)
+        self.updateNews()
+
+    }
+    
+    func delete(deletedNew: News) {
         
-        let recordID = self.news[index].record.recordID
+        guard let new = self.news.filter({ $0.type == deletedNew.type }).first else { return }
+        let recordID = new.record.recordID
         database.delete(withRecordID: recordID) { _, error in
             guard error == nil else {
                 self.handle(error: error!)
@@ -69,7 +83,6 @@ class NewsViewModel: NSObject {
         }
         
         deletedObjectIds.insert(recordID)
-        updateNews()
     }
     
     fileprivate func handle(error: Error) {
@@ -86,6 +99,7 @@ class NewsViewModel: NSObject {
         self.insertedObjects.removeAll { new in
             knownIds.contains(new.record.recordID)
         }
+
         knownIds.formUnion(self.insertedObjects.map { $0.record.recordID })
         
         // remove objects from our local list once we see them not being returned from storage anymore
@@ -122,6 +136,10 @@ class NewsViewModel: NSObject {
     
     func populateNewsCells() {
 
+        func get(_ item: NewsViewModelItemType) -> String {
+            return item.rawValue
+        }
+        
         items.removeAll()
         
         news.forEach({
@@ -129,15 +147,15 @@ class NewsViewModel: NSObject {
             guard let category = $0.type else { return }
             
             switch category {
-            case "Challenge":
+            case get(.challenge):
                 items.append(NewsViewModelChallenge(new: $0))
-            case "FeaturedArtist":
+            case get(.featuredArtist):
                 items.append(NewsViewModelArtist(new: $0))
-            case "SupplyReview":
+            case get(.supplyReview):
                 items.append(NewsViewModelSupply(new: $0))
-            case "TipsAndTricks":
+            case get(.tipsAndTricks):
                 items.append(NewsViewModelTips(new: $0))
-            case "Article":
+            case get(.article):
                 items.append(NewsViewModelArticle(new: $0))
             default:
                 break

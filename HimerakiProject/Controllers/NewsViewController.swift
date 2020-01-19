@@ -8,18 +8,39 @@
 
 import UIKit
 
-class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDelegateFlowLayout {
+enum CellIdentifierMode {
+    case cellType
+    case cellHeight
+}
 
+class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDelegateFlowLayout, AddNewDataDelegate {
+    
     let viewModel = NewsViewModel()
     
     let refreshControl = UIRefreshControl()
     
     var collectionView: UICollectionView!
     
+    var isFirstLaunchForThisController = true
+        
+    lazy var secretButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setBackgroundImage(#imageLiteral(resourceName: "+"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.constrainHeight(constant: 30)
+        button.constrainWidth(constant: 30)
+        button.addTarget(self, action: #selector(presentSecretController), for: .touchUpInside)
+        return button
+    }()
+    
     private var transition: CardTransition?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isFirstLaunchForThisController {
+            shouldCurrentlyHideStatusBar = false
+        }
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         view.addSubview(collectionView)
@@ -43,10 +64,9 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         
-        self.viewModel.onError = { error in
-            let alert = UIAlertController(title: "Error", message: String(describing: error), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default))
-            self.present(alert, animated: true, completion: nil)
+        self.viewModel.onError = { [weak self] error in
+            guard let self = self else { return }
+            self.showAlert(title: "Error", message: String(describing: error), dismissButtonTitle: "Ok")
             self.refreshControl.endRefreshing()
         }
         
@@ -61,6 +81,10 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
         
         self.viewModel.refresh()
         
+        if UserDefaults.standard.bool(forKey: "isAuthor") {
+            navigationController?.navigationBar.tintColor = .purple
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: secretButton)
+        }
     }
     
     override var statusBarAnimatableConfig: StatusBarAnimatableConfig {
@@ -208,10 +232,23 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
             return size as! T
         }
     }
-}
-
-enum CellIdentifierMode {
-    case cellType
-    case cellHeight
+    
+    @objc func presentSecretController() {
+        let secretController = SecretController()
+        secretController.newDataDelegate = self
+        secretController.modalPresentationStyle = .fullScreen
+        self.present(secretController, animated: true)
+    }
+    
+    // MARK: - Secret Controller Delegate
+    
+    func prepareForDatabase(with object: News?) {
+        guard let newType = object else {
+            self.showAlert(title: "Ops", message: "An error occurred, please try again", dismissButtonTitle: "Okay")
+            return
+        }
+        self.viewModel.delete(deletedNew: newType)
+        self.viewModel.addNews(addedNew: newType)
+    }
 }
 

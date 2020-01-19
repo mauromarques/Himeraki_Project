@@ -78,7 +78,7 @@ extension fullArticleViewController {
         return text
     }
     
-    func createLinkTextView() -> UITextView {
+    func createLinkTextView(artist: String, profileLink: String) -> UITextView {
         let link = UITextView()
         link.backgroundColor = .clear
         link.translatesAutoresizingMaskIntoConstraints = false
@@ -87,8 +87,8 @@ extension fullArticleViewController {
         link.isScrollEnabled = false
         link.isSelectable = true
         
-        linkUrl = "https://www.instagram.com/newharoobompark/"
-        link.hyperLink(originalText: "Follow Park Bom on Instagram", hyperLink: "Instagram", urlString: linkUrl)
+        linkUrl = profileLink
+        link.hyperLink(originalText: "Follow \(artist) on Instagram", hyperLink: "Instagram", urlString: linkUrl)
         
         return link
     }

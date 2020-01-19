@@ -33,7 +33,7 @@ extension StatusBarAnimatableConfig {
 /// No-swizzle approach for animating status bar. Subclass view controller with this and override `statusBarAnimatableConfig`.
 class StatusBarAnimatableViewController: UIViewController {
 
-    private var shouldCurrentlyHideStatusBar = true
+    var shouldCurrentlyHideStatusBar = true
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

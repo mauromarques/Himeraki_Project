@@ -11,6 +11,34 @@ import UIKit
 
 let myNotificationKey = "mykey"
 
+extension UIViewController {
+    
+    //MARK: Show Alert Message Without Actions
+    func showAlert(title: String , message: String, dismissButtonTitle: String, buttonStyle: UIAlertAction.Style = .default) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: dismissButtonTitle, style: buttonStyle) { (alert) in }
+        
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    //MARK: Show Alert With Action
+    func showAlertWithAction(title: String?, message: String?, actionTitles:[String?], actionStyles: [UIAlertAction.Style], actions:[((UIAlertAction) -> Void)?], alertStyle: UIAlertController.Style = .alert) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: alertStyle)
+        
+        for (index, title) in actionTitles.enumerated() {
+            let action = UIAlertAction(title: title, style: actionStyles[index], handler: actions[index])
+            alert.addAction(action)
+        }
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
 extension UIImage {
     /// Resize UIImage to new width keeping the image's aspect ratio.
     func resize(toWidth scaledToWidth: CGFloat) -> UIImage {
