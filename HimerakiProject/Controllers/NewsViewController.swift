@@ -37,6 +37,11 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
     
     private var transition: CardTransition?
     
+    override var statusBarAnimatableConfig: StatusBarAnimatableConfig {
+        return StatusBarAnimatableConfig(prefersHidden: false,
+                                         animation: .slide)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,14 +96,14 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
         setupAd()
     }
     
-    func setupAd(){
+    func setupAd() {
         
         view.addSubview(adView)
         
         adView.backgroundColor = .clear
         adView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: nil, size: CGSize(width: 320, height: 50))
         adView.translatesAutoresizingMaskIntoConstraints = false
-        adView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive=true
+        adView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         adView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         adView.rootViewController = self
@@ -107,31 +112,12 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
         
     }
     
-    override var statusBarAnimatableConfig: StatusBarAnimatableConfig {
-        return StatusBarAnimatableConfig(prefersHidden: false,
-                                         animation: .slide)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let item = viewModel.items[indexPath.section]
         
         var cell: BaseNewsCell
-        
-        // Get tapped cell location
-//        switch item.type {
-//        case .challenge:
-//            cell = collectionView.cellForItem(at: indexPath) as! ChallengeCell
-//        case .featuredArtist:
-//            cell = collectionView.cellForItem(at: indexPath) as! FeaturedArtistCell
-//        case .supplyReview:
-//            cell = collectionView.cellForItem(at: indexPath) as! SupplyReviewCell
-//        case .article:
-//            cell = collectionView.cellForItem(at: indexPath) as! ArticleCell
-//        case .tipsAndTricks:
-//            cell = collectionView.cellForItem(at: indexPath) as! TipsAndTricksCell
-//        }
-        
+
         cell = identifyCellType(basedOn: item, forMode: .cellType, indexPath: indexPath)
         
         // Freeze highlighted state (or else it will bounce back)
@@ -187,25 +173,7 @@ class NewsViewController: StatusBarAnimatableViewController, UICollectionViewDel
         
         let item = viewModel.items[indexPath.section]
         var size: CGSize
-//        var size = CGSize(width: UIScreen.main.bounds.width - 40, height: 100)
-//
-//        switch item.type {
-//        case .challenge:
-//            size.height = 187
-//            return size
-//        case .featuredArtist:
-//            size.height = 412
-//            return size
-//        case .supplyReview:
-//            size.height = 326
-//            return size
-//        case .article:
-//            size.height = 380
-//            return size
-//        case .tipsAndTricks:
-//            size.height = 206
-//            return size
-//        }
+
         size = identifyCellType(basedOn: item, forMode: .cellHeight, indexPath: indexPath)
         return size
     }
