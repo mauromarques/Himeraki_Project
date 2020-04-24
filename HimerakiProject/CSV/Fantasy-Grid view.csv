@@ -1,0 +1,44 @@
+﻿Role,Weapon,Location,Element,Race
+Mage,Axe,Castle,Light,Elf
+Healer,Magic wand,Throne room,Darkness,Human
+Warrior,Staff,Enchanted woods,Fire,Troll
+Summoner,Sword,Fairy domain,Wind,Beast
+Dancer,Mace,Ghost town,Nature,Leprechaun
+Swordman,Hammer,Dungeon,Magma,Fairy
+Enchantress,Bow,Magic garden,Ice,Nymph
+Blacksmith,Crossbow,Artic dome,Water,Demon
+Knight,Sling,Hidden village,Earth,Amazon
+Wizard,Long sword,Invisible lake,Stone,Draconic
+Illusionist,Double swords,Catacombs,Sand,Vampire
+elementalist,knife,Atlantis,Mud,Werewolf
+Druid,Dagger,Olympus,Poison,Goblin
+Metamorph,Throwing axe,Floating castle,Metal,Centaur
+Necromancer,Ball and chain,Ice village,Mercury,Orc
+Bard,Spear,Volcano city,Wood,Hobit
+Ranger,Lance,Rainbow end,Lightning ,Satyr
+Ninja,Glaive,Dragon lair,Crystal,Ogre
+Acrobat,Javelin,Monster nest,Smoke,Undead
+thief,Whip,Church,,Giant
+Gambler,Chain,Underwater,,Spirit
+Pirate,Rope,Above clouds,,Genie
+Templar,Fairy dust,,,Angel
+Lancer,Scythe,,,Dwarf
+Rogue,Scimitar,,,Reptilian
+Assassin,Shuriken,,,Mermaid/ Merman
+Berserker,Flail,,,Cat girl/boy
+Barbarian,,,,Alien
+Cleric,,,,
+Monk,,,,
+Priest,,,,
+Beast rider,,,,
+Gypsy,,,,
+Psychic,,,,
+Butler,,,,
+Maid,,,,
+telekinesist,,,,
+Alchemist,,,,
+Beast master,,,,
+Archer,,,,
+Shaman,,,,
+Hunter,,,,
+Warlock,,,,
