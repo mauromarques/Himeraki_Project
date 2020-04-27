@@ -28,10 +28,19 @@ public class PageViewController: UIPageViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.alpha = 0.0
         dataSource = self
 
         if let firstPage = pages.first {
             setViewControllers([firstPage], direction: .forward, animated: true)
+        }
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: 0.4) {
+            self.view.alpha = 1.0
         }
     }
     

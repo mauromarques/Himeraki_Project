@@ -67,7 +67,7 @@ class openingViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     let newvc = CustomTabController()
                     newvc.modalPresentationStyle = .fullScreen
-                    self.navigationController!.present(newvc, animated: true, completion: {
+                    self.navigationController!.present(newvc, animated: false, completion: {
                     })
                 }
                 

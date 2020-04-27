@@ -16,6 +16,8 @@ class CustomTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.alpha = 0.0
+        
         tabBar.tintColor = .selectedPink
         tabBar.unselectedItemTintColor = .unselectedPink
         tabBar.backgroundColor = .white
@@ -42,6 +44,10 @@ class CustomTabController: UITabBarController {
         if LaunchChecker(for: CustomTabController.self).isFirstLaunch() {
            presentOnboarding()
         }
+    
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseOut, animations: {
+            self.view.alpha = 1.0
+        }, completion: nil)
         
 //      Presents Onboarding every time on debug mode.
 //        #if DEBUG
