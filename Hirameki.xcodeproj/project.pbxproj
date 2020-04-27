@@ -48,6 +48,12 @@
 		673682DA23D83D8200EECF0E /* Day-to-day-Grid view.csv in Resources */ = {isa = PBXBuildFile; fileRef = 673682D923D83D8200EECF0E /* Day-to-day-Grid view.csv */; };
 		6792FEAC234C967F0093FA84 /* shop.png in Resources */ = {isa = PBXBuildFile; fileRef = 6792FEAB234C967F0093FA84 /* shop.png */; };
 		67EF83AA241A34FC00680D52 /* webViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EF83A9241A34FC00680D52 /* webViewController.swift */; };
+		8F4649EA2457020200A9C40E /* LaunchChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4649E92457020200A9C40E /* LaunchChecker.swift */; };
+		8F4649EC2457021700A9C40E /* OnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4649EB2457021700A9C40E /* OnboardingItem.swift */; };
+		8F4649EE2457024400A9C40E /* OnboardingMainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4649ED2457024400A9C40E /* OnboardingMainContentView.swift */; };
+		8F4649F02457025300A9C40E /* OnboardingStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4649EF2457025300A9C40E /* OnboardingStar.swift */; };
+		8F4649F22457026300A9C40E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4649F12457026300A9C40E /* OnboardingViewController.swift */; };
+		8F4649F42457027200A9C40E /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4649F32457027200A9C40E /* PageViewController.swift */; };
 		8F84EDD6232FD98E00EA5534 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F84EDD5232FD98E00EA5534 /* CloudKit.framework */; };
 		8F84EE0F2337C69700EA5534 /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE0E2337C69700EA5534 /* CachedImageView.swift */; };
 		8F84EE172338F7EE00EA5534 /* CardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F84EE132338F7EE00EA5534 /* CardTransition.swift */; };
@@ -125,6 +131,12 @@
 		673682D923D83D8200EECF0E /* Day-to-day-Grid view.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Day-to-day-Grid view.csv"; sourceTree = "<group>"; };
 		6792FEAB234C967F0093FA84 /* shop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop.png; sourceTree = "<group>"; };
 		67EF83A9241A34FC00680D52 /* webViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webViewController.swift; sourceTree = "<group>"; };
+		8F4649E92457020200A9C40E /* LaunchChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchChecker.swift; sourceTree = "<group>"; };
+		8F4649EB2457021700A9C40E /* OnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItem.swift; sourceTree = "<group>"; };
+		8F4649ED2457024400A9C40E /* OnboardingMainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMainContentView.swift; sourceTree = "<group>"; };
+		8F4649EF2457025300A9C40E /* OnboardingStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStar.swift; sourceTree = "<group>"; };
+		8F4649F12457026300A9C40E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		8F4649F32457027200A9C40E /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		8F84EDD3232FD97F00EA5534 /* HimerakiProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HimerakiProject.entitlements; sourceTree = "<group>"; };
 		8F84EDD5232FD98E00EA5534 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		8F84EE0E2337C69700EA5534 /* CachedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
@@ -210,6 +222,7 @@
 				8F946A6D2321058300673302 /* NewsCells */,
 				2FCDBC9623191EFD00F2FB91 /* Controllers */,
 				2FCDBC9323191E3700F2FB91 /* Helpers */,
+				8F4649E8245701E700A9C40E /* Onboarding */,
 				8F946A7C232105A600673302 /* TabBar */,
 				8F84EE122338F7EE00EA5534 /* Transition */,
 				2FCDBC922319117300F2FB91 /* images */,
@@ -307,6 +320,19 @@
 				673682D223D706BE00EECF0E /* Fantasy-Grid view.csv */,
 			);
 			path = CSV;
+			sourceTree = "<group>";
+		};
+		8F4649E8245701E700A9C40E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				8F4649E92457020200A9C40E /* LaunchChecker.swift */,
+				8F4649EB2457021700A9C40E /* OnboardingItem.swift */,
+				8F4649ED2457024400A9C40E /* OnboardingMainContentView.swift */,
+				8F4649EF2457025300A9C40E /* OnboardingStar.swift */,
+				8F4649F12457026300A9C40E /* OnboardingViewController.swift */,
+				8F4649F32457027200A9C40E /* PageViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		8F84EDD4232FD98E00EA5534 /* Frameworks */ = {
@@ -526,9 +552,12 @@
 				2F8C7F14231FB84200BE4746 /* GenerateHeader.swift in Sources */,
 				8FD983B923F0216500C22613 /* NotificationManager.swift in Sources */,
 				2FCDBCA32319794100F2FB91 /* FavoriteCells.swift in Sources */,
+				8F4649EA2457020200A9C40E /* LaunchChecker.swift in Sources */,
 				2F8C7F16231FFC9D00BE4746 /* GenerateView.swift in Sources */,
 				8FD983BF23F057D900C22613 /* NotificationAuthorization.swift in Sources */,
+				8F4649F42457027200A9C40E /* PageViewController.swift in Sources */,
 				2FCDBC9923191F5700F2FB91 /* articleView.swift in Sources */,
+				8F4649F02457025300A9C40E /* OnboardingStar.swift in Sources */,
 				8F84EE182338F7EE00EA5534 /* CardPresentationController.swift in Sources */,
 				6732E4402452234200D3EC41 /* objcfile.m in Sources */,
 				8FAE0644243CB90000C63F43 /* SpotlightHandler.swift in Sources */,
@@ -540,6 +569,7 @@
 				2FCDBCA5231A77C000F2FB91 /* BaseCell.swift in Sources */,
 				8F946A84232106A100673302 /* UIMakers.swift in Sources */,
 				6732E4422452244400D3EC41 /* openingViewController.swift in Sources */,
+				8F4649EC2457021700A9C40E /* OnboardingItem.swift in Sources */,
 				2FCDBCA7231A90F600F2FB91 /* FavoritePopUpView.swift in Sources */,
 				8F946A86232106AD00673302 /* Constant.swift in Sources */,
 				8F946A762321058300673302 /* SupplyReviewCell.swift in Sources */,
@@ -554,11 +584,13 @@
 				2FCDBC87231813D300F2FB91 /* fullArticleViewController.swift in Sources */,
 				2FCDBC722318026400F2FB91 /* AppDelegate.swift in Sources */,
 				8F946A752321058300673302 /* ArticleCell.swift in Sources */,
+				8F4649F22457026300A9C40E /* OnboardingViewController.swift in Sources */,
 				8F946A82232105A600673302 /* GradientBtn.swift in Sources */,
 				8F946A692321056300673302 /* News.swift in Sources */,
 				8F946A80232105A600673302 /* CurvedView.swift in Sources */,
 				8FD983C123F082CE00C22613 /* Extensions.swift in Sources */,
 				8F946A7B2321058300673302 /* BaseNewsCell.swift in Sources */,
+				8F4649EE2457024400A9C40E /* OnboardingMainContentView.swift in Sources */,
 				8F946A672321055500673302 /* NewsViewController.swift in Sources */,
 				8F946A81232105A600673302 /* CustomTabBarController.swift in Sources */,
 				8F84EE1A2338F7EE00EA5534 /* DismissCardAnimator.swift in Sources */,

@@ -36,6 +36,19 @@ class CustomTabController: UITabBarController {
         ]
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if LaunchChecker(for: CustomTabController.self).isFirstLaunch() {
+           presentOnboarding()
+        }
+        
+//      Presents Onboarding every time on debug mode.
+//        #if DEBUG
+//        presentOnboarding()
+//        #endif
+    }
+    
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
         switch item {
@@ -52,6 +65,17 @@ class CustomTabController: UITabBarController {
             askForPassword()
         }
     
+    }
+    
+    func presentOnboarding() {
+        let pages = [OnboardingViewController(.first), OnboardingViewController(.second), OnboardingViewController(.third)]
+        let onboarding = PageViewController(pages: pages)
+        
+        pages.forEach { $0.delegate = onboarding }
+        
+        onboarding.modalPresentationStyle = .fullScreen
+        
+        present(onboarding, animated: false)
     }
     
     func askForPassword() {
