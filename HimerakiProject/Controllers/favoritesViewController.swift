@@ -58,7 +58,7 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         collectionView.backgroundColor = UIColor.white
         setImage()
      
-     setupAd()
+//     setupAd()
     }
      
      func setupAd(){
@@ -181,7 +181,7 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
         if collectionView == popUpCollectionView{
             return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
-        return UIEdgeInsets(top: 55, left: 20, bottom: 50, right: 20)
+        return UIEdgeInsets(top: 10, left: 20, bottom: 50, right: 20)
     }
     
 }
