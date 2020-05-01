@@ -272,10 +272,10 @@ extension fullArticleViewController {
         NSLayoutConstraint.activate(titleLabelConstraints)
         
         let publisherLabelConstraints: [NSLayoutConstraint] = [
-            publisherLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 3),
+            publisherLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: publisherLabelTopConstant),
             publisherLabel.leadingAnchor.constraint(equalTo: bottomContainer.leadingAnchor, constant:  20),
             publisherLabel.trailingAnchor.constraint(equalTo: bottomContainer.trailingAnchor, constant:  -20),
-            publisherLabel.heightAnchor.constraint(equalToConstant: 18)
+            publisherLabel.heightAnchor.constraint(equalToConstant: publisherLabelHeightConstant)
             
         ]
         NSLayoutConstraint.activate(publisherLabelConstraints)

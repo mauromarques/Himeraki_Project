@@ -44,6 +44,8 @@ class fullArticleViewController: StatusBarAnimatableViewController, UITextViewDe
     var weirdTriangle: UIImageView!
     var photoCreditsLabel: UILabel!
     var publisherLabel: UILabel!
+    var publisherLabelHeightConstant: CGFloat = 18
+    var publisherLabelTopConstant: CGFloat = 3
     
     let theText = "Park Bom (born March 24, 1984), previously known mononymously as Bom, is a South Korean singer. She is best known as a member of the South Korean girl group 2NE1. \n\nPark began her musical career in 2006, featuring on singles released by labelmates Big Bang, Lexy, and Masta Wu. In 2009, she made her debut as a member of 2NE1 as the main vocalist. Park has released two solo singles, You and I and Don't Cry, which reached number one on the Gaon Digital Chart, the national music chart of South Korea.[1] She was awarded Best Digital Single at the 2010 Mnet Asian Music Awards. \n\nFollowing 2NE1's disbandment in 2016, Park left her group's agency, YG Entertainment, in November 2016. In July 2018, she signed with D-Nation Entertainment and released her comeback single, Spring, in March 2019. "
     
@@ -72,6 +74,10 @@ class fullArticleViewController: StatusBarAnimatableViewController, UITextViewDe
         super.viewDidLoad()
         
         guard let new = new else { return }
+        if new.publisher == nil || new.publisher == "" {
+            publisherLabelHeightConstant = 0
+            publisherLabelTopConstant = 0
+        }
         
         weirdTriangle = createWeirdTriangle()
         closeButton = createCloseButton()
