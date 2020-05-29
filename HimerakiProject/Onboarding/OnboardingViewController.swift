@@ -64,8 +64,8 @@ class OnboardingViewController: UIViewController {
         button.constrainWidth(constant: 90)
         button.layer.cornerRadius = 45
         button.layer.applySketchShadow(color: .black, alpha: 0.23, y: 1, blur: 10)
-        button.backgroundColor = item.forwardButtonColor
         button.setImage(UIImage(named: item.forwardButtonImage), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFill
         button.addTarget(self, action: #selector(didTapForward), for: .touchUpInside)
         return button
     }()

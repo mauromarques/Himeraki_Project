@@ -55,13 +55,6 @@ enum OnboardingItem {
         }
     }
 
-    var forwardButtonColor: UIColor {
-        switch self {
-        case .third: return UIColor(red: 255 / 255, green: 34 / 255, blue: 119 / 255, alpha: 1.0)
-        default: return UIColor(red: 234 / 255, green: 97 / 255, blue: 149 / 255, alpha: 1.0)
-        }
-    }
-
     var isSkipButtonHidden: Bool {
         switch self {
         case .third: return true
