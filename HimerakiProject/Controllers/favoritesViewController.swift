@@ -27,10 +27,12 @@ class favoritesViewController: UICollectionViewController, UICollectionViewDeleg
      var currentPopUp:UIView?
      var currentIndex = Int()
     
-     let nothingToSee:UIImageView={
-          var image = UIImageView()
-          image.image=UIImage(named: "nothing")
-          image.contentMode = .scaleAspectFit
+     let nothingToSee:UILabel={
+          var image = UILabel()
+          image.text = "There's still nothing to see here"
+          image.textAlignment = .center
+          image.textColor = .lightGray
+          image.alpha = 0.5
           return image
      }()
      

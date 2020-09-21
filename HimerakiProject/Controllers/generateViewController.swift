@@ -83,6 +83,7 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
     @objc func closeButtonPressed() {
         print("close button pressed")
         self.dismiss(animated: true, completion: nil)
+        
     }
     @objc func confirmButtonPressed() {
         categoriesToGenerate.removeAll()
@@ -279,8 +280,16 @@ class generateViewController: UICollectionViewController, UICollectionViewDelega
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier:
             "MyHeader", for: indexPath) as! generateHeader
+        header.isUserInteractionEnabled = true
+        header.infoButton.addTarget(self, action: #selector(openAirtable), for: .touchUpInside)
         return header
         
+    }
+    
+    @objc func openAirtable(sender: UIButton!) {
+        print ("BOSTANARO")
+        guard let url = URL(string:"https://airtable.com/shrB8xN4EfYmdbOfW") else { return }
+        UIApplication.shared.open(url)
     }
 }
 
