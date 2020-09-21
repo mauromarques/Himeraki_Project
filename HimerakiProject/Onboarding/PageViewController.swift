@@ -55,7 +55,7 @@ public class PageViewController: UIPageViewController {
             }
             // Change page control 'y' position
             if subView is UIPageControl {
-                subView.frame.origin.y = self.view.frame.size.height - 155
+                subView.frame.origin.y = self.view.frame.size.height - 140
                 
                 if let pageControl = subView as? UIPageControl {
                     pageControl.pageIndicatorTintColor = .gray

@@ -21,6 +21,10 @@ class OnboardingViewController: UIViewController {
     var skipButtonIsHidden: Bool {
         return item.isSkipButtonHidden
     }
+
+    var topInset: CGFloat {
+        (view.frame.height - 812) / 2
+    }
     
     weak var delegate: OnboardingChildViewControllerDelegate?
 
@@ -64,8 +68,8 @@ class OnboardingViewController: UIViewController {
         button.constrainWidth(constant: 90)
         button.layer.cornerRadius = 45
         button.layer.applySketchShadow(color: .black, alpha: 0.23, y: 1, blur: 10)
-        button.backgroundColor = item.forwardButtonColor
         button.setImage(UIImage(named: item.forwardButtonImage), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFill
         button.addTarget(self, action: #selector(didTapForward), for: .touchUpInside)
         return button
     }()
@@ -152,6 +156,7 @@ class OnboardingViewController: UIViewController {
             leading: view.leadingAnchor,
             bottom: nil,
             trailing: view.trailingAnchor,
+            padding: UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 340))
 
         mainTitle.anchor(
@@ -159,24 +164,27 @@ class OnboardingViewController: UIViewController {
             leading: nil,
             bottom: nil,
             trailing: nil,
-            padding: UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0),
+            padding: UIEdgeInsets(top: (topInset < 0) ? 0 : 50, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 40))
         mainTitle.centerXInSuperview()
 
+        debugPrint("🔴🟢 \(topInset) 🔴🟢")
         subTitle.anchor(
             top: mainTitle.bottomAnchor,
             leading: view.leadingAnchor,
             bottom: nil,
             trailing: view.trailingAnchor,
-            padding: UIEdgeInsets(top: 20, left: 45, bottom: 0, right: 45))
+            padding: UIEdgeInsets(top: (topInset < 0) ? 0 : 20, left: 45, bottom: 0, right: 45))
 
         forwardButton.anchor(
             top: nil,
             leading: nil,
             bottom: view.bottomAnchor,
             trailing: nil,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 25, right: 0))
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0))
         forwardButton.centerXInSuperview()
+
+        view.bringSubviewToFront(skipButton)
     }
     
     func setupStars() {
@@ -189,7 +197,7 @@ class OnboardingViewController: UIViewController {
             view.addSubview(imageView)
             imageView.frame = CGRect(
                 x: item.starsPositions[index].x,
-                y: item.starsPositions[index].y,
+                y: item.starsPositions[index].y + (topInset * 1.1),
                 width: star.size.width,
                 height: star.size.height)
             
