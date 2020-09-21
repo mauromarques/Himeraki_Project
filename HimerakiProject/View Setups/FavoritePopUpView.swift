@@ -310,14 +310,6 @@ extension generateViewController {
         
     }
     @objc func deleteAtIndex(sender: UIButton!) {
-        if favorites.count >= 10 {
-            
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                self.premiumYConstraint.constant=0
-                self.blurEffectView.layoutIfNeeded()
-            })
-            
-        }else{
             
         UIView.animate(withDuration: 0.3, animations: {
             self.centerYConstraint.constant = (self.view.frame.height/2)+(267/2)
@@ -353,7 +345,7 @@ extension generateViewController {
                 
             })
             }
-        }
+        
     }
     
     
