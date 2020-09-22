@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-enum NewsViewModelItemType: String, CustomStringConvertible {
+enum NewsViewModelItemType: String, CustomStringConvertible, CaseIterable {
     
     case challenge = "Challenge"
     case featuredArtist = "FeaturedArtist"
@@ -18,7 +18,7 @@ enum NewsViewModelItemType: String, CustomStringConvertible {
     case tipsAndTricks = "TipsAndTricks"
     
     var description: String {
-        return self.rawValue
+        self.rawValue
     }
 }
 

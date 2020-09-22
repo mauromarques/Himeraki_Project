@@ -6,55 +6,57 @@
 //  Copyright © 2020 Mauro Marques. All rights reserved.
 //
 
-import Foundation
 import CloudKit
+import Foundation
 
 public protocol SubscriptionFetcher {
     func fetchAllSubscriptions()
 }
 
 public class NotificationManager: SubscriptionFetcher {
-    
     public enum Error: Swift.Error {
         case connectivity
         case unableToProceed
     }
-    
+
     public init() {}
-    
+
     public func fetchAllSubscriptions() {
-        
         let database = CKContainer.default().publicCloudDatabase
-        
-        database.fetchAllSubscriptions { subscriptions, error in
-            
+
+        database.fetchAllSubscriptions { [weak self] subscriptions, error in
+            guard let self = self else { return }
+
             if error == nil {
                 if let subscriptions = subscriptions {
                     if subscriptions.isEmpty {
-                        let wantedItemIDs = [0, 1, 2, 3, 4]
-                        
-                        // Retrieve record with item_id which is inside the wantedItemIDs array
-                        let predicate = NSPredicate(format: "id IN %@", wantedItemIDs)
-                        
-                        let subscription = CKQuerySubscription(recordType: "News", predicate: predicate, options: [.firesOnRecordCreation])
-                        
-                        let notification = CKSubscription.NotificationInfo()
-                        notification.alertBody = "There's a new article in the collection."
-                        notification.soundName = "default"
-                        
-                        subscription.notificationInfo = notification
-                        print("cu cagado")
-                        
-                        database.save(subscription) { result, error in
-                            if let error = error {
-                                print(error.localizedDescription)
-                            }
-                        }
+                        self.prepareNotification(ids: [1, 2, 3, 4], in: database)
+                        self.prepareNotification(ids: [0], in: database)
                     }
-                    
                 }
             } else {
                 print(error!.localizedDescription)
+            }
+        }
+    }
+
+    private func prepareNotification(ids: [Int], in database: CKDatabase) {
+        // Retrieve record with item_id which is inside the wantedItemIDs array
+        let predicate = NSPredicate(format: "id IN %@", ids)
+
+        let subscription = CKQuerySubscription(recordType: "News", predicate: predicate, options: [.firesOnRecordCreation])
+
+        let notification = CKSubscription.NotificationInfo()
+        let challengeBody = "There's a new challenge for you!"
+        let articleBody = "There's a new article for you."
+        notification.alertBody = ids.count == 1 ? challengeBody : articleBody
+        notification.soundName = "default"
+
+        subscription.notificationInfo = notification
+
+        database.save(subscription) { _, error in
+            if let error = error {
+                print(error.localizedDescription)
             }
         }
     }
