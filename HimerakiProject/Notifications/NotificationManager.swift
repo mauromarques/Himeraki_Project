@@ -28,14 +28,17 @@ public class NotificationManager: SubscriptionFetcher {
             guard let self = self else { return }
 
             if error == nil {
+                debugPrint("🔴🔴\("There's no error")🟢🟢")
                 if let subscriptions = subscriptions {
+                    debugPrint("🔴🔴 Subscriptions count \(subscriptions.count)🟢🟢")
                     if subscriptions.isEmpty {
+                        debugPrint("🔴🔴 Creating Subscriptions 🟢🟢")
                         self.prepareNotification(ids: [1, 2, 3, 4], in: database)
                         self.prepareNotification(ids: [0], in: database)
                     }
                 }
             } else {
-                print(error!.localizedDescription)
+                debugPrint("🔴🔴 \(error!.localizedDescription) 🟢🟢")
             }
         }
     }
@@ -55,8 +58,9 @@ public class NotificationManager: SubscriptionFetcher {
         subscription.notificationInfo = notification
 
         database.save(subscription) { _, error in
+            debugPrint("🔴🔴 Subscription created 🟢🟢")
             if let error = error {
-                print(error.localizedDescription)
+                debugPrint("🔴🔴 \(error.localizedDescription) 🟢🟢")
             }
         }
     }
